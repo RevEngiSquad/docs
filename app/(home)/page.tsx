@@ -23,8 +23,8 @@ export default function HomePage() {
         <RainbowButton>Try the Bot</RainbowButton>
       </Link><br></br>
       <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-        <NavItem text="Features" href="/features" />
-        <NavItem text="Explore Docs" href="/docs" />
+        <Btns text="Features" href="/features" />
+        <Btns text="Explore Docs" href="/docs" />
       </div>
       <div className="md:hidden">
         <MarqueeDemoVertical />
@@ -42,7 +42,7 @@ export default function HomePage() {
   );
 }
 
-export function NavItem({ text, href }: { text: string; href: string }) {
+function Btns({ text, href }: { text: string; href: string }) {
   return <Button className="md:px-6" asChild variant="secondary"><Link href={href}>{text}</Link></Button>;
 }
 
@@ -103,7 +103,7 @@ function MarqueeDemoVertical() {
   )
 }
 
-export function MarqueeDemo() {
+function MarqueeDemo() {
   return (
     <div className="bg-background relative flex size-full flex-col items-center justify-center overflow-hidden rounded-lg border py-20 md:shadow-xl">
       <Marquee pauseOnHover className="[--duration:20s]">

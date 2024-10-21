@@ -1,13 +1,140 @@
 ---
-title: Hello World
-description: Your first document
+title: RevEngiBot Documentation
+description: Comprehensive guide to RevEngiBot's features and usage.
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+# Welcome to RevEngiBot Docs
 
-## What is Next?
+RevEngiBot is a powerful Telegram bot tailored for reverse engineers and developers. It combines an array of essential tools designed to streamline workflows and simplify complex tasks such as Smali conversion, APK analysis, Java/Smali decompilation, ARM conversion, and much more.
+
+## Getting Started
+
+To start using RevEngiBot, visit [RevEngiBot on Telegram](https://t.me/RevEngiBot) and explore a suite of tools that can significantly enhance your reverse engineering projects.
+
+## Commands Overview
+
+Below is a complete list of commands you can use in the bot to interact with its various features:
+
+| Command              | Description                                                                                       |
+|----------------------|---------------------------------------------------------------------------------------------------|
+| `/start`             | View the bot's start page.                                                                         |
+| `/help`              | Access the help section.                                                                           |
+| `/aab2apk`           | Convert Android App Bundles (AAB) to APK by replying to an AAB file.                               |
+| `/apk`               | Analyze APK files, decompile components, extract resources, and more.                              |
+| `/apkid`             | Identify compilers, packers, obfuscators, and tools used in an APK.                                |
+| `/apkprotect`        | Protect APK files against unauthorized modification.                                               |
+| `/apksign`           | Sign APK files with multiple signing schemes (v1, v2, v3).                                         |
+| `/askai`             | Use Gemini Pro AI (by Google) to ask technical questions.                                           |
+| `/asm`               | Convert assembly language to hexadecimal.                                                         |
+| `/disasm`            | Convert hexadecimal back to assembly.                                                             |
+| `/base`              | Convert numbers between different bases (binary, hexadecimal, decimal, etc.).                      |
+| `/blutter`           | Analyze Flutter APKs and `.so` files using Blutter integration.                                    |
+| `/credits`           | See third-party libraries used in the bot.                                                        |
+| `/dex2java`          | Convert Dex files to Java source code.                                                            |
+| `/frida_compile`     | Compile and encrypt Frida scripts to be compatible with Frida environments.                       |
+| `/hash`              | Generate hash values from text or files (supports multiple algorithms).                            |
+| `/java2smali`        | Convert Java files to Smali code.                                                                 |
+| `/premium`           | Learn about RevEngiBot Premium and support development.                                            |
+| `/regex`             | Convert Smali instructions to regular expressions.                                                |
+| `/scan`              | Perform APK security scans using integrated tools.                                                |
+| `/smali`             | Query detailed Smali grammar and opcodes.                                                         |
+| `/smali2java`        | Convert Smali code to Java.                                                                       |
+| `/toapk`             | Convert XAPK, APKM, or APKS files to APK.                                                         |
+| `/xml`               | XML-related tools for decompiling, parsing, and editing.                                           |
+
+## Full Feature List
+
+RevEngiBot offers a variety of features, with some still in development or being refined. Here’s a quick breakdown of the current status of each feature:
+
+| Feature                | Status               |
+|------------------------|----------------------|
+| **Base Converter**      | All test passed ✅    |
+| **Smali Grammar**       | All test passed ✅    |
+| **Smali to Java**       | All test passed ✅    |
+| **Dex to Java**         | All test passed ✅    |
+| **Java to Smali**       | All test passed ✅    |
+| **ARM Converter**       | All test passed ✅    |
+| **APK Protector**       | All test passed ✅    |
+| **APKiD**               | All test passed ✅    |
+| **XML Decompiler**      | All test passed ✅    |
+| **APK Analyzer**        | All test passed ✅    |
+| **APK Source Decompiler**| All test passed ✅    |
+| **AAB to APK Converter**| All test passed ✅    |
+| **Resources Decompiler**| All test passed ✅    |
+| **Coding AI Assistant** | All test passed ✅    |
+| **Blutter Integration** | All test passed ✅    |
+| **Frida Compile**       | All test passed ✅    |
+| **APK Signer**          | All test passed ✅     |
+| **Smart Regex Converter**| Idea ready ⚙️        |
+| **Regex Maker**         | Being worked on ⚙️    |
+| **More features**       | Currently researched 🔍|
+
+## Key Features
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
+  <Card title="Smali Grammar" href="#smali-grammar" />
+  <Card title="Java/Smali Conversion" href="#java-smali-conversion" />
+  <Card title="Regex Maker" href="#regex-maker" />
+  <Card title="APK Info Extraction" href="#apk-info" />
+  <Card title="AAB to APK" href="#aab-to-apk" />
+  <Card title="Dex2Java" href="#dex2java" />
+  <Card title="Blutter Integration" href="#blutter-integration" />
 </Cards>
+
+### Smali Grammar <a id="smali-grammar"></a>
+
+**Smali Grammar** provides a comprehensive guide to Smali language with a detailed list of opcodes. This tool helps reverse engineers easily navigate and understand Smali code used in Android applications.
+
+### Java/Smali Conversion <a id="java-smali-conversion"></a>
+
+With **Java to Smali** and **Smali to Java** conversions, you can seamlessly transition between these two languages. Whether you're modifying Java code or analyzing Smali, RevEngiBot's conversion features are reliable and efficient.
+
+### Regex Maker <a id="regex-maker"></a>
+
+**Regex Maker** (in development) allows you to craft complex regular expressions for Smali code. Whether for searching or extracting data, this tool simplifies regex creation.
+
+### APK Info Extraction <a id="apk-info"></a>
+
+Use the **APK Info** command to extract critical information from APK files:
+
+- Check basic APK info (package name, version, etc.)
+- List permissions from `AndroidManifest.xml`
+- Extract decompiled `AndroidManifest.xml` and `resources.arsc` as XML files
+- Get detailed signature information (certificate hashes, issuer, etc.)
+
+### AAB to APK Conversion <a id="aab-to-apk"></a>
+
+No need for additional tools! Convert **AAB** files to APK format directly with the `/aab2apk` command, simplifying the process for developers and testers.
+
+### Dex2Java <a id="dex2java"></a>
+
+Decompile **Dex** files into readable Java code for in-depth analysis and code modification using the `/dex2java` command.
+
+### Blutter Integration <a id="blutter-integration"></a>
+
+**Blutter Integration** facilitates quick analysis of Flutter APKs and `.so` files. Detect Dart versions, extract necessary files, and generate detailed analysis reports within seconds.
+
+## Upcoming Features
+
+Some exciting features are in the pipeline:
+
+- **APK Signer**: Sign APK files with custom signature(s).
+- **Smart Regex Converter**: Convert Smali instructions to regex patterns (in development).
+- **More Features**: We are constantly researching new ways to improve the bot and introduce cutting-edge features.
+
+## Premium Features
+
+While RevEngiBot is free to use, we offer [Premium subscriptions](./premium) for users who wish to access higher limits and help support our ongoing server costs. Premium plans are affordable and provide valuable benefits to enhance your experience.
+
+<Cards>
+  <Card title="Learn More About Premium" href="./docs/premium" />
+</Cards>
+
+---
+
+For more updates and detailed changelogs, join our Telegram community:
+
+- Channel: [@RevEngiTeam](https://t.me/RevEngiTeam)
+- Support: [@RevEngiSquad](https://t.me/RevEngiSquad)
+
+Happy Reversing!

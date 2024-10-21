@@ -17,5 +17,10 @@ export const baseOptions: HomeLayoutProps = {
       url: '/docs',
       active: 'nested-url',
     },
+    {
+      text: 'Features',
+      url: '/docs#full-feature-list',
+      active: 'nested-url',
+    },
   ],
 };

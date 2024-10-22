@@ -12,22 +12,16 @@ const reviews = [
         img: 'https://i.imgur.com/EzRnDi8.jpeg',
     },
     {
-        name: 'Ramandeep',
-        username: '@ramanveerji',
-        body: 'The special features like decompiling the flutter libraries, converting assembly code to hex and vice versa, protecting apk files and converting smali to java are cherry on top.',
-        img: 'https://i.imgur.com/EzRnDi8.jpeg',
+        name: 'Marc Nin',
+        username: '@mragonias',
+        body: 'Awesome, fantastic, great idea!!!\nThanks thanks thanks',
+        img: 'https://i.imgur.com/DyhvHbW.jpeg',
     },
     {
         name: 'Ramandeep',
         username: '@ramanveerji',
         body: 'Highly recommended!',
         img: 'https://i.imgur.com/EzRnDi8.jpeg',
-    },
-    {
-        name: 'Oppasenpaii',
-        username: '@oppasenpaii',
-        body: 'More than satisfied..  It\'s like normally take 10 minutes but bot takes 10 sec..\nSuper fast..',
-        img: 'https://i.imgur.com/ZvYHsMT.jpeg',
     },
     {
         name: 'GhostKiller',
@@ -42,10 +36,10 @@ const reviews = [
         img: 'https://avatar.vercel.sh/john',
     },
     {
-        name: 'Marc Nin',
-        username: '@mragonias',
-        body: 'Awesome, fantastic, great idea!!!\nThanks thanks thanks',
-        img: 'https://i.imgur.com/DyhvHbW.jpeg',
+        name: 'Oppasenpaii',
+        username: '@oppasenpaii',
+        body: 'More than satisfied..  It\'s like normally take 10 minutes but bot takes 10 sec..\nSuper fast..',
+        img: 'https://i.imgur.com/ZvYHsMT.jpeg',
     },
     {
         name: 'S͢i͢m͢o͢',
@@ -64,6 +58,12 @@ const reviews = [
         username: '@mragonias',
         body: 'It\'s absolutly amazing.\nSince today I only need MT, termux and this tool',
         img: 'https://i.imgur.com/DyhvHbW.jpeg',
+    },
+    {
+        name: 'Ramandeep',
+        username: '@ramanveerji',
+        body: 'The special features like decompiling the flutter libraries, converting assembly code to hex and vice versa, protecting apk files and converting smali to java are cherry on top.',
+        img: 'https://i.imgur.com/EzRnDi8.jpeg',
     },
 ]
 

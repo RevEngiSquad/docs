@@ -23,7 +23,7 @@ export default function HomePage() {
         <RainbowButton>Try the Bot</RainbowButton>
       </Link><br></br>
       <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-        <Btns text="Features" href="/features" />
+        <Btns text="Features" href="/docs#full-feature-list" />
         <Btns text="Explore Docs" href="/docs" />
       </div>
       <div className="md:hidden">

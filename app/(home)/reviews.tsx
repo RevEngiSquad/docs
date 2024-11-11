@@ -60,6 +60,12 @@ const reviews = [
         img: 'https://i.imgur.com/DyhvHbW.jpeg',
     },
     {
+        name: 'ㅤιη∂αℓσк',
+        username: '@IndAlok',
+        body: 'It\'s an absolute beast. A must-try!',
+        img: 'https://i.imgur.com/AX3Cm7x.jpeg',
+    },
+    {
         name: 'Ramandeep',
         username: '@ramanveerji',
         body: 'The special features like decompiling the flutter libraries, converting assembly code to hex and vice versa, protecting apk files and converting smali to java are cherry on top.',

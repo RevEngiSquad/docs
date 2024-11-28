@@ -9,6 +9,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "RevEngi",
   description: "A Telegram bot for reverse engineers and developers.",
+  icons: {
+    icon: "/icon.jpg",
+  },
 };
 
 const firstRow = reviews.slice(0, reviews.length / 2);

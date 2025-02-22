@@ -1,0 +1,1063 @@
+---
+title: Commands
+description: Detailed information about  all available commands for RevEngiBot.
+---
+
+## Start <a id="start"></a>
+
+The `/start` command is the default command that displays the bot's start page, nothing special but a must for every bot to interact with users.
+
+## Help <a id="help"></a>
+
+The `/help` command is used to display the help page, which contains all the commands that the bot has.
+
+## AAB to APK Conversion <a id="aab-to-apk"></a>
+
+No need for additional tools! Convert **AAB** files to APK format directly with the `/aab2apk` command, simplifying the process for developers and testers.
+
+**Status**: All test passed ✅
+
+**Usage**:
+Use this cmd while replying to a `.aab` file to convert that to `.apk` file.
+
+<Callout title="NOTE" type="warn">
+  The converted apk file is not signed.
+</Callout>
+
+## APK Analysis <a id="apk"></a>
+
+**APK Analysis** provides a comprehensive way to interact with APK files. You can extract resources, permissions, activities, services, and more. This feature is essential for reverse engineers and developers working with Android applications.
+
+**Status**: All tests passed ✅
+
+This command allows you to interact with APK files.
+
+<Callout title="NOTE" type="warn">
+  You must register an APK before doing anything. To register an APK, reply to
+  an APK file by sending `/apk`.
+</Callout>
+
+**Commands**:
+
+- **Get APK Info**:
+
+```shell
+/apk info
+```
+
+This will give you basic information about the APK, such as package name, version, etc. for example:
+
+```markdown
+App info:
+Name: `MPatcher` <!-- Name of the app -->
+Package: `ru.maximoff.sheller` <!-- Package name -->
+Icon path: `res/mipmap-anydpi-v21/ic_launcher.xml` <!-- Icon path -->
+Version: `4.9` <!-- Version name -->
+Version code: `49` <!-- Version code -->
+Min SDK: `14` <!-- Minimum SDK version -->
+Target SDK: `28` <!-- Target SDK version -->
+Effective SDK: `28` <!-- Effective SDK version -->
+Main activity: `ru.maximoff.sheller.MainActivity` <!-- Main activity -->
+Signed: `False` <!-- Whether the APK is signed or not -->
+```
+
+- **Get Permissions**:
+
+```shell
+/apk info permissions
+```
+
+This will give you a list of permissions requested by the APK. For example:
+
+```markdown
+Requested permissions:
+
+- `com.android.launcher.permission.INSTALL_SHORTCUT`
+- `android.permission.INTERNET`
+- `android.permission.FOREGROUND_SERVICE`
+- `android.permission.READ_EXTERNAL_STORAGE`
+- `android.permission.WRITE_EXTERNAL_STORAGE`
+- `android.permission.MANAGE_EXTERNAL_STORAGE`
+- `android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS`
+
+Implied permissions:
+None found.
+```
+
+- **Get Activities**:
+
+```shell
+/apk info activities
+```
+
+This will give you a list of accessible activities in the APK. For example:
+
+```markdown
+Activities:
+
+- ru.maximoff.sheller.MainActivity
+- ru.maximoff.sheller.EditActivity
+- ru.maximoff.sheller.Settings
+- ru.maximoff.sheller.Shortcut
+- ru.maximoff.sheller.CreateShortcut
+```
+
+- **Get Signature Information**:
+
+```shell
+/apk info sign
+```
+
+This will you the information on Signing Block of the APK. For example:
+
+{/* fmt: off */}
+
+```plaintext
+APK Signature info by @RevEngiBot
+
+——— v1 signature block ———
+* CERT #1:
+  Certificate version: v3
+  Serial: 90970645
+  Sign algorithm: sha256_rsa
+  Creation: 2016-10-23 20:10:05+00:00
+  Expiry: 2044-03-10 20:10:05+00:00
+  CRC32: 0XB05C962C (2958857772)
+  MD5: 2AE9969644853C4BCFB771C0155AD969
+  SHA1: 5D08264B44E0E53FBCCC70B4F016474CC6C5AB5C
+  SHA256: 1E08A903AEF9C3A721510B64EC764D01D3D094EB954161B62544EA8F187B5953
+  Sign Algo.: rsassa_pkcs1v15
+  Owner:
+    Common Name(CN): Android Debug
+    Organizational Unit(OU): Android
+    Organization(O): US
+    Locality(L): US
+    State(ST): US
+    Country(C): US
+    CRC32: 0x5f9ab33d (1603973949)
+    MD5: E9B67516EE3B06903386500C44B87B16
+    SHA1: C6F633B9F663E039A936960BC3144E695EC36E15
+    SHA256: DE9DEA6539BEA9A7E9C9242E731FC39FE11C03A2D3EE4DE3D11916A87894C0CA
+    Public Key Info:
+      Algorithm: rsa
+      Algorithm params: None
+      Public Key:
+        Modulus: 20548748681539643661378627124493003910098588949943724843151035513170939924787923623660029846674356859178725236890664132666492987592698141949596287484636811256363830613214210272131602181231653110863140793565805239455855905233548412631104148044872219314493403538838544795636154157872657979139329092760471831174440750348088466603628911693874835536959084542549929549756633693715292691492118151286508257335760195747576851541741414007385591611336103455399635585947142041447526685259869034635240920269797120864588259598526920719502080374966365402458299202560622925251228526810050136805094884487650445013365420726402313632257
+        Exponent: 65537
+  Issuer:
+    Self-issued by the certificate owner
+——— v2 signature block ———
+* CERT #1:
+  Certificate version: v3
+  Serial: 90970645
+  Sign algorithm: sha256_rsa
+  Creation: 2016-10-23 20:10:05+00:00
+  Expiry: 2044-03-10 20:10:05+00:00
+  CRC32: 0XB05C962C (2958857772)
+  MD5: 2AE9969644853C4BCFB771C0155AD969
+  SHA1: 5D08264B44E0E53FBCCC70B4F016474CC6C5AB5C
+  SHA256: 1E08A903AEF9C3A721510B64EC764D01D3D094EB954161B62544EA8F187B5953
+  Sign Algo.: rsassa_pkcs1v15
+  Owner:
+    Common Name(CN): Android Debug
+    Organizational Unit(OU): Android
+    Organization(O): US
+    Locality(L): US
+    State(ST): US
+    Country(C): US
+    CRC32: 0x5f9ab33d (1603973949)
+    MD5: E9B67516EE3B06903386500C44B87B16
+    SHA1: C6F633B9F663E039A936960BC3144E695EC36E15
+    SHA256: DE9DEA6539BEA9A7E9C9242E731FC39FE11C03A2D3EE4DE3D11916A87894C0CA
+    Public Key Info:
+      Algorithm: rsa
+      Algorithm params: None
+      Public Key:
+        Modulus: 20548748681539643661378627124493003910098588949943724843151035513170939924787923623660029846674356859178725236890664132666492987592698141949596287484636811256363830613214210272131602181231653110863140793565805239455855905233548412631104148044872219314493403538838544795636154157872657979139329092760471831174440750348088466603628911693874835536959084542549929549756633693715292691492118151286508257335760195747576851541741414007385591611336103455399635585947142041447526685259869034635240920269797120864588259598526920719502080374966365402458299202560622925251228526810050136805094884487650445013365420726402313632257
+        Exponent: 65537
+  Issuer:
+    Self-issued by the certificate owner
+——— v3 signature block ———
+* CERT #1:
+  Certificate version: v3
+  Serial: 90970645
+  Sign algorithm: sha256_rsa
+  Creation: 2016-10-23 20:10:05+00:00
+  Expiry: 2044-03-10 20:10:05+00:00
+  CRC32: 0XB05C962C (2958857772)
+  MD5: 2AE9969644853C4BCFB771C0155AD969
+  SHA1: 5D08264B44E0E53FBCCC70B4F016474CC6C5AB5C
+  SHA256: 1E08A903AEF9C3A721510B64EC764D01D3D094EB954161B62544EA8F187B5953
+  Sign Algo.: rsassa_pkcs1v15
+  Owner:
+    Common Name(CN): Android Debug
+    Organizational Unit(OU): Android
+    Organization(O): US
+    Locality(L): US
+    State(ST): US
+    Country(C): US
+    CRC32: 0x5f9ab33d (1603973949)
+    MD5: E9B67516EE3B06903386500C44B87B16
+    SHA1: C6F633B9F663E039A936960BC3144E695EC36E15
+    SHA256: DE9DEA6539BEA9A7E9C9242E731FC39FE11C03A2D3EE4DE3D11916A87894C0CA
+    Public Key Info:
+      Algorithm: rsa
+      Algorithm params: None
+      Public Key:
+        Modulus: 20548748681539643661378627124493003910098588949943724843151035513170939924787923623660029846674356859178725236890664132666492987592698141949596287484636811256363830613214210272131602181231653110863140793565805239455855905233548412631104148044872219314493403538838544795636154157872657979139329092760471831174440750348088466603628911693874835536959084542549929549756633693715292691492118151286508257335760195747576851541741414007385591611336103455399635585947142041447526685259869034635240920269797120864588259598526920719502080374966365402458299202560622925251228526810050136805094884487650445013365420726402313632257
+        Exponent: 65537
+  Issuer:
+    Self-issued by the certificate owner
+```
+
+{/* fmt: on */}
+
+- **Get Decompiled `AndroidManifest.xml` File**:
+
+```shell
+/apk manifest decompile
+```
+
+This will give you the decompiled `AndroidManifest.xml` file. For example:
+
+```xml
+<!--  AndroidManifest.xml decompiled by RevEngiBot  -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="49" android:versionName="4.9" android:compileSdkVersion="32" android:compileSdkVersionCodename="12" package="ru.maximoff.sheller" platformBuildVersionCode="32" platformBuildVersionName="12">
+<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="28"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+<application android:theme="@7F0B0007" android:label="@7F0A0006" android:icon="@7F030000" android:name="ru.maximoff.sheller.App" android:allowBackup="true" android:largeHeap="true" android:usesCleartextTraffic="true" android:resizeableActivity="true" android:roundIcon="@7F030001" android:requestLegacyExternalStorage="true" android:preserveLegacyExternalStorage="true">
+<activity android:label="@7F0A0006" android:icon="@7F030000" android:name="ru.maximoff.sheller.MainActivity" android:exported="true" android:launchMode="2" android:configChanges="0x00000FB4" android:windowSoftInputMode="0x00000012">
+<intent-filter>
+<action android:name="android.intent.action.MAIN"/>
+<category android:name="android.intent.category.LAUNCHER"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.intent.action.VIEW"/>
+<category android:name="android.intent.category.BROWSABLE"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="file"/>
+<data android:scheme="content"/>
+<data android:host="*"/>
+<data android:mimeType="*/*"/>
+<data android:pathPattern=".*.mpatch"/>
+<data android:pathPattern=".*..*.mpatch"/>
+<data android:pathPattern=".*..*..*.mpatch"/>
+<data android:pathPattern=".*..*..*..*.mpatch"/>
+<data android:pathPattern=".*..*..*..*..*.mpatch"/>
+<data android:pathPattern=".*..*..*..*..*..*.mpatch"/>
+<data android:pathPattern=".*..*..*..*..*..*..*.mpatch"/>
+<data android:pathPattern=".*.mpatch.zip"/>
+<data android:pathPattern=".*..*.mpatch.zip"/>
+<data android:pathPattern=".*..*..*.mpatch.zip"/>
+<data android:pathPattern=".*..*..*..*.mpatch.zip"/>
+<data android:pathPattern=".*..*..*..*..*.mpatch.zip"/>
+<data android:pathPattern=".*..*..*..*..*..*.mpatch.zip"/>
+<data android:pathPattern=".*..*..*..*..*..*..*.mpatch.zip"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.intent.action.VIEW"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:mimeType="application/ru.maximoff.sheller-patch"/>
+</intent-filter>
+</activity>
+<activity android:label="@7F0A0003" android:icon="@7F030000" android:name="ru.maximoff.sheller.EditActivity" android:configChanges="0x00000FB4" android:windowSoftInputMode="0x00000014"/>
+<activity android:label="@7F0A006D" android:icon="@7F030000" android:name="ru.maximoff.sheller.Settings" android:exported="true" android:configChanges="0x00000FB4" android:windowSoftInputMode="0x00000012">
+<intent-filter>
+<action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+</activity>
+<activity android:theme="@7F0B0008" android:label="@7F0A0006" android:icon="@7F030000" android:name="ru.maximoff.sheller.Shortcut" android:exported="true" android:excludeFromRecents="true" android:configChanges="0x00000FB4" android:windowSoftInputMode="0x00000012"/>
+<activity android:theme="@7F0B0008" android:label="@7F0A001D" android:icon="@7F030000" android:name="ru.maximoff.sheller.CreateShortcut" android:excludeFromRecents="true" android:configChanges="0x00000FB4" android:windowSoftInputMode="0x00000012"/>
+<service android:name="ru.maximoff.sheller.OngoingService">
+<intent-filter>
+<action android:name="ru.maximoff.sheller.OngoingService.ACTION_START"/>
+<action android:name="ru.maximoff.sheller.OngoingService.ACTION_UPDATE"/>
+<action android:name="ru.maximoff.sheller.OngoingService.STOP_SERVICE"/>
+</intent-filter>
+</service>
+</application>
+</manifest>
+```
+
+- **Get Decompiled `resources.arsc` File**:
+
+```shell
+/apk arsc decompile
+```
+
+This will give you XML decompiled `resources.arsc` file. For example:
+
+```xml
+<!--  XML decompiled arsc  -->
+<!--  Decompiled by RevEngiBot  -->
+<!--  Package: ru.maximoff.sheller  -->
+<resources>
+<public type="drawable" name="dialog_border_black" id="0x7f020000"/>
+<public type="drawable" name="file" id="0x7f020001"/>
+<public type="drawable" name="file_white" id="0x7f020002"/>
+<public type="drawable" name="folder" id="0x7f020003"/>
+<public type="drawable" name="folder_white" id="0x7f020004"/>
+<public type="drawable" name="ic_add" id="0x7f020005"/>
+<public type="drawable" name="ic_add_white" id="0x7f020006"/>
+<public type="drawable" name="ic_dotsmenu" id="0x7f020007"/>
+<public type="drawable" name="ic_dotsmenu_white" id="0x7f020008"/>
+<public type="drawable" name="ic_menu" id="0x7f020009"/>
+<public type="drawable" name="ic_menu_white" id="0x7f02000a"/>
+<public type="drawable" name="ic_paste" id="0x7f02000c"/>
+<public type="drawable" name="ic_paste_white" id="0x7f02000d"/>
+<public type="drawable" name="ic_play" id="0x7f02000e"/>
+<public type="drawable" name="ic_play_white" id="0x7f02000f"/>
+<public type="drawable" name="ic_redo" id="0x7f020010"/>
+<public type="drawable" name="ic_redo_disable" id="0x7f020011"/>
+<public type="drawable" name="ic_redo_white" id="0x7f020012"/>
+<public type="drawable" name="ic_save" id="0x7f020013"/>
+<public type="drawable" name="ic_save_disable" id="0x7f020014"/>
+<public type="drawable" name="ic_save_white" id="0x7f020015"/>
+<public type="drawable" name="ic_settings" id="0x7f020016"/>
+<public type="drawable" name="ic_settings_white" id="0x7f020017"/>
+<public type="drawable" name="ic_star" id="0x7f020018"/>
+<public type="drawable" name="ic_star_white" id="0x7f020019"/>
+<public type="drawable" name="ic_undo" id="0x7f02001a"/>
+<public type="drawable" name="ic_undo_disable" id="0x7f02001b"/>
+<public type="drawable" name="ic_undo_white" id="0x7f02001c"/>
+<public type="drawable" name="scrollbar_handle" id="0x7f02001d"/>
+<public type="drawable" name="toast_border_black" id="0x7f02001e"/>
+<public type="drawable" name="ic_notification" id="0x7f02000b"/>
+<public type="drawable" name="ic_notification" id="0x7f02000b"/>
+<public type="drawable" name="ic_notification" id="0x7f02000b"/>
+<public type="drawable" name="ic_notification" id="0x7f02000b"/>
+<public type="drawable" name="ic_notification" id="0x7f02000b"/>
+<public type="mipmap" name="ic_launcher" id="0x7f030000"/>
+<public type="mipmap" name="ic_launcher_round" id="0x7f030001"/>
+<public type="mipmap" name="ic_launcher" id="0x7f030000"/>
+<public type="mipmap" name="ic_launcher_round" id="0x7f030001"/>
+<public type="mipmap" name="ic_launcher" id="0x7f030000"/>
+<public type="mipmap" name="ic_launcher_round" id="0x7f030001"/>
+<public type="mipmap" name="ic_launcher" id="0x7f030000"/>
+<public type="mipmap" name="ic_launcher_round" id="0x7f030001"/>
+<public type="mipmap" name="ic_launcher" id="0x7f030000"/>
+<public type="mipmap" name="ic_launcher_round" id="0x7f030001"/>
+<public type="mipmap" name="ic_launcher" id="0x7f030000"/>
+<public type="mipmap" name="ic_launcher_round" id="0x7f030001"/>
+<!-- Redacted for Brevity  -->
+<public type="id" name="list" id="0x7f0d0039"/>
+<public type="id" name="list" id="0x7f0d003a"/>
+<public type="id" name="list" id="0x7f0d003b"/>
+<public type="id" name="list" id="0x7f0d003c"/>
+<public type="id" name="list" id="0x7f0d003d"/>
+<public type="id" name="list" id="0x7f0d003e"/>
+</resources>
+```
+
+- **Get Decompiled Source of the APK (using jadx)**:
+
+```shell
+/apk src decompile
+```
+
+This command will decompile the APK using jadx and return the decompiled source code.
+
+- **Unregister APK**:
+
+```shell
+/apk_exit
+```
+
+This command will unregister the APK from the bot.
+
+<Callout title="NOTE" type="warn">
+  All APK files will be unregistered after 30 minutes.
+</Callout>
+
+## APKiD <a id="apkid"></a>
+
+```shell
+/apkid
+```
+
+You can use this command to identify the packer, protector, obfuscator, or oddities used in an APK file.
+
+## Smali Grammar <a id="smali"></a>
+
+This command allows you to fetch detailed information about Smali instructions, helping you understand their syntax, usage, and behavior.
+
+**Usage**:
+
+```shell
+/smali <instruction>
+```
+
+**Example**:
+
+```shell
+/smali invoke-virtual
+```
+
+### Detailed Information
+
+When you use the `/smali` command, the bot will guide you through the process of retrieving information about the specified Smali instruction. Here’s how it works:
+
+1. **Exact Match vs. Partial Match**:
+
+   - The bot will first ask whether you want to perform an exact match or a partial match.
+   - **Exact Match**: If you choose an exact match, the bot will provide detailed information about the specified instruction.
+   - **Partial Match**: If you choose a partial match, the bot will provide a list of instructions that contain the specified string. You can then select one of the instructions from the list to get detailed information about it.
+
+2. **Interactive Selection**:
+   - After choosing the type of match, you will be presented with relevant options.
+   - For an exact match, you will receive comprehensive details about the instruction.
+   - For a partial match, you will see a list of matching instructions, and you can select one to get detailed information.
+   - If no response is received within 20 seconds, task will be cancelled.
+
+### Example Workflow
+
+1. **Command Execution**:
+
+   ```shell
+   /smali invoke-virtual
+   ```
+
+2. **Bot Prompt**:
+
+   ```
+   Do you want to perform an exact match or a partial match for 'invoke-virtual'?
+   - Exact Match
+   - Partial Match
+   ```
+
+3. **User Choice**:
+   - If you choose **Exact Match**, the bot will provide detailed information about the `invoke-virtual` instruction:
+   - If you choose **Partial Match**, the bot will list instructions that contain the string `invoke-virtual`, allowing you to select one for detailed information.
+
+## APK Protector <a id="apkprotect"></a>
+
+```shell
+/apkprotect
+```
+
+This command allows you to protect your APK files using various tools, packers, obfuscators, and techniques. Currently, the following tools are supported:
+
+- **[DPT Shell](https://github.com/luoyesiqiu/dpt-shell)**
+
+More tools will be added in the future.
+
+## APK Signer
+
+This command signs an APK file using various signing schemes. The command must be used as a reply to an `.apk` file.
+
+**Usage:**
+
+```shell
+/apksign [options] [reply to .apk file]
+```
+
+**Options:**
+
+- **`v1`**: Signs the APK with the v1 signing scheme.
+- **`v2`**: Signs the APK with the v2 signing scheme.
+- **`v3`**: Signs the APK with the v3 signing scheme.
+- **(None)** or **`v1+v2+v3`**: Signs the APK with all v1, v2, and v3 signing schemes. This is the default if no options are specified.
+- **Combinations**: You can combine options using `+` to specify multiple signing schemes. For example:
+  - `v1+v2`: Signs with v1 and v2.
+  - `v1+v3`: Signs with v1 and v3.
+  - `v2+v3`: Signs with v2 and v3.
+
+**Examples:**
+
+- `/apksign [in reply to an APK file]` (Signs with v1, v2, and v3)
+- `/apksign v1 [in reply to an APK file]` (Signs with only v1)
+- `/apksign v2+v3 [in reply to an APK file]` (Signs with v2 and v3)
+
+## ASK AI <a id="askai"></a>
+
+This command allows you to interact with an AI model. You can start a conversation, reset it, or exit it.
+
+**Starting a Conversation:**
+
+Use the following command to begin a conversation with the AI:
+
+```shell
+/askai <your prompt>
+```
+
+**Example:**
+
+```shell
+/askai What is the capital of France?
+```
+
+Subsequent messages you send will be treated as part of the ongoing conversation with the AI. The AI's responses will be displayed as replies to your messages.
+
+**Important Considerations:**
+
+- The AI will ignore messages that resemble commands (those starting with `/` or `!`).
+- In groups, only `/askai` prefixed messages will be sent to the AI.
+
+**Managing Your Conversation:**
+
+- **Resetting the Conversation:** To start a fresh conversation, use: `/askai_new`
+- **Exiting the Conversation:** To end the current conversation, use: `/askai_exit`
+- **Changing the AI Model:** Use `/askai_model` to (potentially) change the underlying AI model. Available models are: `Gemini` and `Cohere`.
+
+**Group Usage:**
+
+- **Enabling/Disabling:** This feature is disabled in groups by default. Group admins can enable it using `/askai_enable` and disable it using `/askai_disable`.
+- **Group Restrictions:** Within groups, you _must_ use the `/askai` prefix for all AI queries.
+
+**Timeout:**
+
+Conversations will automatically end after 10 minutes of inactivity.
+
+## ASM <a id="asm"></a>
+
+This command converts assembly code to various ARM assembly hexadecimal representations.
+
+**Usage:**
+
+Use the following command to convert your assembly code:
+
+```shell
+/asm <assembly code>
+```
+
+**Example:**
+
+`/asm mov r0, r1`
+
+**Output:**
+
+The command will return a response containing hexadecimal representations for different ARM architectures:
+
+```markdown
+⁃ arm: `0100A0E1`
+⁃ armbe: `E1A00001`
+⁃ thumb: `0846`
+⁃ thumbbe: `4608`
+```
+
+<Callout title="NOTE" type="warn">
+  The specific output formats may vary depending on the input assembly code and
+  its compatibility with different architectures.
+</Callout>
+
+## DISASM <a id="disasm"></a>
+
+This command disassembles ARM assembly hexadecimal code into its corresponding assembly instructions.
+
+**Usage:**
+
+Use the following command to disassemble your hex code:
+
+```shell
+/disasm <hex code>
+```
+
+**Example:**
+
+`/disasm 0100A0E1`
+
+**Output:**
+
+The command will return a response containing disassembled assembly instructions for different ARM architectures, where possible:
+
+```markdown
+⁃ arm: `mov r0, r1`
+⁃ armbe: `smlatteq r0, r1, r0, sl`
+⁃ thumb: `movs r1, r0`
+`b #0x346`
+⁃ thumbbe: `lsls r0, r0, #4`
+`adr r0, #0x384`
+⁃ arm64: `.BYTE 0x01, 0x00, 0xa0, 0xe1`
+```
+
+<Callout title="NOTE" type="warn">
+  The disassembled output may vary depending on the provided hexadecimal code
+  and its compatibility with different ARM architectures.
+</Callout>
+
+## Base Converter <a id="base"></a>
+
+This command allows you to convert numbers between different bases.
+
+**Usage:**
+
+The command supports several formats depending on the type of conversion you need.
+
+**1. Base 10 to Common Bases:**
+
+Convert a base 10 number to binary, octal, decimal, and hexadecimal.
+
+```shell
+/base <number>
+```
+
+**Examples:**
+
+```shell
+/base 100
+/base 1337
+```
+
+**2. Other Base to Common Bases:**
+
+Convert a number from a specified base to common bases (binary, octal, decimal, hexadecimal).
+
+```shell
+/base <base> <number>
+```
+
+**Examples:**
+
+```shell
+/base 2 1100100  # Binary to common bases
+/base 8 777     # Octal to common bases
+```
+
+**3. Other Base to Another Base:**
+
+Convert a number from one specified base to another specified base.
+
+```shell
+/base <base_a> <base_b> <number>
+```
+
+**Examples:**
+
+```shell
+/base 10 3 238   # Base 10 to Base 3
+/base 4 9 112   # Base 4 to Base 9
+```
+
+**4. String to Base64/Base32 Encoding:**
+
+Encode a string to Base64 or Base32.
+
+```shell
+/base e <b32|b64> <string>
+```
+
+**Examples:**
+
+```shell
+/base e b32 Hello
+/base e b64 "Heplikopter xD"
+```
+
+**5. Base64/Base32 to String Decoding:**
+
+Decode a Base64 or Base32 encoded string back to its original string representation.
+
+```shell
+/base d <b32|b64> <encoded_string>
+```
+
+**Examples:**
+
+```shell
+/base d b64 SGVsbG8=
+/base d b32 JBSWY3DP
+```
+
+<Callout title="NOTE" type="warn">
+  Ensure that the input number and encoded strings are correctly formatted for
+  the specified base. Errors may occur if the input is invalid.
+</Callout>
+
+## Blutter Integration <a id="blutter"></a>
+
+**Blutter Integration** facilitates quick analysis of Flutter APKs and `.so` files. Detect Dart versions, extract necessary files, and generate detailed analysis reports within seconds.
+
+**Usage:**
+
+This command extracts Dart code from an APK, ZIP, or 7Z file. Use it as a reply to the file.
+
+**Basic Extraction:**
+
+To extract Dart code without compression, reply to the file with:
+
+```shell
+/blutter
+```
+
+**Custom ZIP Filename:**
+
+To extract Dart code to a custom ZIP filename, reply to the file with:
+
+```shell
+/blutter <zip_filename>.zip
+```
+
+Replace `<zip_filename>` with your desired filename. The `.zip` extension is optional; you can omit it. If no filename is provided, the output will be named `out.zip`.
+
+**Examples:**
+
+- `/blutter` (Extracts Dart code to `out.zip`)
+- `/blutter my_dart_code.zip` (Extracts Dart code to `my_dart_code.zip`)
+- `/blutter my_analysis` (Extracts Dart code to `my_analysis.zip`)
+
+<Callout title="Note">
+  The input file must be an APK, ZIP, or 7Z file containing `libflutter.so` &
+  `libapp.so`.
+</Callout>
+
+## Control Flow Flattening (Obfuscation) <a id="cff"></a>
+
+This command applies control flow flattening obfuscation to DEX files using BlackObfuscator. This makes reverse engineering more difficult.
+
+**Usage:**
+
+This command must be used as a reply to a DEX file.
+
+```shell
+/cff <args>
+```
+
+**Arguments:**
+
+Arguments specify classes and packages to include or exclude from obfuscation.
+
+- **`+ <package_or_class>`:** Includes the specified package or class.
+- **`- <package_or_class>`:** Excludes the specified package or class.
+
+**Examples:**
+
+- `/cff +com.example.app -com.example.app.debug`: Includes everything in `com.example.app` except the `com.example.app.debug` package.
+- `/cff +com.example.app.MainActivity`: Only obfuscates the `MainActivity` class within the `com.example.app` package.
+- `/cff +com.my.app`: Obfuscates the entire `com.my.app` package.
+
+**Important Notes:**
+
+- **Reply to DEX:** This command _must_ be used as a reply to a DEX file.
+- **Case Sensitivity:** Package names are case-sensitive. Incorrect casing will lead to unexpected results.
+
+## Cocos2d JSC Decryption <a id="cocos2d"></a>
+
+This command decrypts a Cocos2d `.jsc` (encrypted JavaScript) file to a `.js` (plain JavaScript) file.
+
+**Usage:**
+
+This command requires the decryption key and must be used as a reply to the `.jsc` file.
+
+```shell
+/cocos2d <key>
+```
+
+Replace `<key>` with the correct decryption key for the `.jsc` file.
+
+**Example:**
+
+```shell
+/cocos2d MySecretDecryptionKey
+```
+
+<Callout title="Important">
+  You must know the correct decryption key for this command to work. Providing
+  an incorrect key will result in failure.
+</Callout>
+
+## DEX to Java <a id="dex2java"></a>
+
+This command converts DEX (Dalvik Executable) files to Java source code. It supports multiple decompilers to allow you to choose the best option for your needs.
+
+**Usage:**
+
+This command must be used as a reply to a DEX file.
+
+```shell
+/dex2java
+```
+
+**Decompiler Selection:**
+
+After sending the command, the bot will prompt you to select a decompiler from the available options.
+
+<Callout title="Important">
+  The success and quality of the conversion depend heavily on the chosen
+  decompiler and the complexity of the DEX file. Some decompilers may produce
+  better results than others for specific DEX files.
+</Callout>
+
+## Dex Repair <a id="dex-repair"></a>
+
+It fixes the DEX magic number and updates the checksum and signature in the DEX header.
+
+**Usage:**
+
+This command must be used as a reply to a DEX file.
+
+```shell
+/dexrepair
+```
+
+## Frida Script Compilation & Obfuscation <a id="frida_compile"></a>
+
+```shell
+/frida_compile
+```
+
+This command compiles and obfuscates JavaScript Frida scripts into a Frida-compatible bytecode format.
+
+<Callout title="Note">
+  This feature is under development and is not yet suitable for real-world or
+  production use. Results may be unpredictable, and the output may not always be
+  compatible with all Frida versions.
+</Callout>
+
+## Hash Generator <a id="hash"></a>
+
+This command generates various cryptographic hashes for input text or files.
+
+**Usage:**
+
+**For Text Input:**
+
+```shell
+/hash <text>
+```
+
+**For Files:** Use this command as a reply to the file you want to hash.
+
+```shell
+/hash
+```
+
+**Output:**
+
+The command will return a list of hashes, including:
+
+- MD5
+- SHA1
+- SHA224
+- SHA256
+- SHA384
+- SHA512
+- SHA3_224
+- SHA3_256
+- SHA3_384
+- SHA3_512
+- SHAKE_128 (with length 64)
+- SHAKE_256 (with length 64)
+- BLAKE2B
+- BLAKE2S
+- CRC32
+- Adler32
+
+<Callout title="Note">
+  The output will vary depending on the input text or file. For large files,
+  processing time may increase.
+</Callout>
+
+## Java/Smali Conversion <a id="java2smali"></a>
+
+With **Java to Smali** and **Smali to Java** conversions, you can seamlessly transition between these two languages.
+
+**Usage:**
+
+For Java to Smali:
+
+```shell
+/java2smali
+```
+
+For Smali to Java:
+
+```shell
+/smali2java
+```
+
+<Callout title="Note">
+  These commands must be used as a reply to the corresponding file.
+</Callout>
+
+## Regex Maker <a id="regex"></a>
+
+**Regex Maker** allows you to craft complex regular expressions for Smali code. Whether for searching or extracting data, this tool simplifies regex creation.
+
+**Usage:**
+
+Either use it with an input:
+
+```shell
+/regex <input>
+```
+
+OR reply to a message with the command:
+
+```shell
+/regex <reply to input>
+```
+
+## Smali2Frida <a id="s2f"></a>
+
+This command generates Frida hooks directly from `.smali` files, simplifying the process of setting up dynamic analysis.
+
+**Usage:**
+
+Reply to a `.smali` file with the following command:
+
+```shell
+/s2f
+```
+
+<Callout title="Important">
+  This command must be used as a reply to a `.smali` file. The output will be
+  Frida script(s) designed to interact with the functions defined in the
+  provided `.smali` code.
+</Callout>
+
+## JNI Function Information <a id="jni_info"></a>
+
+This command extracts and displays JNI (Java Native Interface) function signatures from an APK file.
+
+**Usage:**
+
+Reply to an APK file with the command:
+
+```shell
+/jni_info
+```
+
+The bot will then process the APK and return a list of identified JNI function signatures.
+
+<Callout title="Important">
+  This command requires an APK file as input and must be used as a reply to that
+  file. The accuracy of the results depends on the structure and complexity of
+  the APK.
+</Callout>
+
+## MT Enhanced Hook <a id="mthook"></a>
+
+This command generates an MT enhanced hook for APK files. This is typically used for bypassing signature checks during application analysis or modification.
+
+**Usage:**
+
+Reply to an APK file with the command:
+
+```shell
+/mthook
+```
+
+<Callout title="Warning" type="warn">
+  Modifying APK files in this way can have unintended consequences and may lead
+  to instability or malfunction of the application. Use this command cautiously
+  and only on APKs you have permission to modify.
+</Callout>
+
+## APK Scan <a id="scan"></a>
+
+This command scans an APK file to assess its security posture using third-party tools.
+
+**Usage:**
+
+This command can be used in two ways:
+
+**Method 1: Specifying the Scanner**
+
+Use this method to explicitly select the scanner you wish to use.
+
+```shell
+/scan <scanner_name>
+```
+
+Replace `<scanner_name>` with one of the following:
+
+- `androbugs`: Uses AndroBugs for the scan.
+- `deeplens`: Uses APKDeepLens for the scan.
+
+**Method 2: Replying to an APK File**
+
+Reply to an APK file with the `/scan` command. The bot will then prompt you to select the scanner you wish to use from a list of available options.
+
+**Examples:**
+
+- `/scan androbugs` (Scans using AndroBugs)
+- `/scan deeplens` (Scans using APKDeepLens)
+
+<Callout title="Important">
+  This command must be used as a reply to an APK file.. The accuracy and detail
+  of the results will depend on the capabilities of the chosen scanner and the
+  complexity of the APK.
+</Callout>
+
+## APK Converter <a id="toapk"></a>
+
+This command converts various Android application package formats (`.apks`, `.xapk`, `.apkm`) to the standard `.apk` format.
+
+**Usage:**
+
+Reply to a `.apks`, `.xapk`, or `.apkm` file with the command:
+
+```shell
+/toapk
+```
+
+The bot will process the input file and generate a corresponding `.apk` file.
+
+<Callout title="Important" type="warn">
+  The resulting `.apk` file will **not** be signed. You will need to sign it
+  separately before installing or distributing it. This command must be used as
+  a reply to a supported package file.
+</Callout>
+
+## XML Tools <a id="xml"></a>
+
+This command provides tools for interacting with XML and AXML (Android XML) files.
+
+**Current Functionality:**
+
+- **AXML Decompilation:** Decompile an AXML file into a standard XML format.
+
+  ```shell
+  /xml decompile
+  ```
+
+  Use this command as a reply to an AXML file.
+
+- **XML Compilation:** Compile an XML file into the AXML format.
+
+  ```shell
+  /xml compile
+  ```
+
+  Use this command as a reply to an XML file.
+
+<Callout title="Note">
+  This command requires an AXML or XML file as input and should be used as a
+  reply to that file. Additional XML manipulation tools will be added in future
+  updates.
+</Callout>
+
+## Credits <a id="credits"></a>
+
+This command lists the third-party libraries used in this project. You can also view this information by using the command `/credits`.
+
+The following libraries and projects are integral to the functionality of this bot:
+
+**Core Functionality & Plugins:**
+
+- ✨ [Team RevEngi](https://github.com/RevEngiSquad)
+- [Telethon](https://docs.telethon.dev/en/stable/)
+- [AndroBugs2](https://github.com/androbugs2/androbugs2)
+- [ApkEditor](https://github.com/REAndroid/APKEditor)
+- [androguard](https://github.com/androguard/androguard)
+- [BlackObfuscator](https://github.com/CodingGay/BlackObfuscator)
+- [bundletool](https://github.com/google/bundletool)
+- [blutter-termux](https://github.com/AbhiTheModder/blutter-termux)
+- [CFR Decompiler](https://github.com/leibnitz27/cfr)
+- [pyxamstore](https://github.com/AbhiTheModder/pyxamstore)
+- [dpt-shell](https://github.com/luoyesiqiu/dpt-shell)
+- [Gemini](https://gemini.google.com/)
+- [Cohere](https://cohere.com/)
+- [java2smali](https://github.com/RevEngiSquad/java2smali)
+- [jni_helper](https://github.com/evilpan/jni_helper)
+- [jadx](https://github.com/skylot/jadx)
+- [sigtool](https://github.com/muhammadrizwan87/sigtool)
+- [APKiD](https://github.com/rednaga/APKiD)
+- [Dex2Jar](https://github.com/pxb1988/dex2jar)

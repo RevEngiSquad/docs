@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import { RainbowButton } from '@/components/ui/rainbow-button';
-import { Button } from '@/components/ui/button';
-import { ny } from '@/lib/utils';
-import Marquee from '@/components/ui/marquee';
-import reviews from '@/app/(home)/reviews';
-import type { Metadata } from 'next';
+import Link from "next/link";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Button } from "@/components/ui/button";
+import { ny } from "@/lib/utils";
+import Marquee from "@/components/ui/marquee";
+import reviews from "@/app/(home)/reviews";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "RevEngi",
@@ -27,14 +27,14 @@ export default function HomePage() {
         </h1>
         <p className="text-base sm:text-lg max-w-2xl mx-auto mb-8">
           Revolutionizing the workflow for reverse engineers and developers.
-          Explore powerful tools like Smali Grammar, Java-Smail converters,
-          Regex Maker, APK Info, and more. All at your fingertips through our
-          easy-to-use Telegram bot.
+          Explore powerful tools like Blutter, Smali Grammar, Java-Smali
+          converters, Regex Maker, APK Info, and more. All at your fingertips
+          through our easy-to-use Telegram bot.
         </p>
       </div>
       <Link
         href="https://t.me/RevEngiBot"
-        className="flex justify-center items-center gap-2"
+        className="flex justify-center items-center gap-2 w-fit mx-auto mb-10"
       >
         <RainbowButton>Try the Bot</RainbowButton>
       </Link>
@@ -109,13 +109,13 @@ function MarqueeDemoVertical() {
   return (
     <div className="bg-background relative flex h-96 flex-row items-center justify-center overflow-hidden rounded-lg border sm:px-20 md:shadow-xl">
       <Marquee pauseOnHover vertical className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} vertical />
+        {firstRow.map((review, index) => (
+          <ReviewCard key={`${review.username}-${index}`} {...review} />
         ))}
       </Marquee>
       <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} vertical />
+        {secondRow.map((review, index) => (
+          <ReviewCard key={`${review.username}-${index}`} {...review} />
         ))}
       </Marquee>
       <div className="dark:from-background pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white"></div>

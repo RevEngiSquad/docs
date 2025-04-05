@@ -12,10 +12,22 @@ const reviews = [
         img: 'https://i.imgur.com/EzRnDi8.jpeg',
     },
     {
+        name: 'Suryansh',
+        username: '@Suryanshlegend',
+        body: 'Thanks to this amazing bot you have saves 14-15 GB of my termux space',
+        img: 'https://i.imgur.com/PohlYpJ.png',
+    },
+    {
         name: 'Marc Nin',
         username: '@mragonias',
         body: 'Awesome, fantastic, great idea!!!\nThanks thanks thanks',
         img: 'https://i.imgur.com/DyhvHbW.jpeg',
+    },
+    {
+        name: '🇮🇳 [</>] 𝐀 𝐬 𝐮 𝐫 𝐚',
+        username: '@YouKnowAsura',
+        body: 'Brada reveng is best bot i ever seen',
+        img: 'https://avatar.vercel.sh/satori',
     },
     {
         name: 'Ramandeep',

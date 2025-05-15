@@ -1,0 +1,133 @@
+---
+title: RevEngi API
+description: Integrate powerful reverse engineering capabilities directly into your applications with our REST API. RevEngi provides a comprehensive set of endpoints for Flutter analysis, JNI analysis, and more.
+---
+
+
+## Base URL
+```
+https://api.revengi.in
+```
+
+## Authentication
+
+All API requests require an API key passed in the `X-API-Key` header.
+
+```bash
+curl -H "X-API-Key: your_api_key" https://api.revengi.in/endpoint
+```
+
+To obtain an API key:
+
+1. Register/Login at [app.revengi.in](https://app.revengi.in)
+2. Navigate to your profile settings
+3. Get your API key from the settings page
+
+Alternatively, you can use the following endpoints to register or login:
+
+**Register (`POST /register`):**
+```bash
+curl -X POST https://api.revengi.in/register \
+  -H "Content-Type: application/json" \
+  -d '{"username": "your_username", "password": "your_password"}'
+```
+
+<Callout type="warn">
+  **Note:** Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character and underscores are allowed.
+</Callout>
+
+**Login (`POST /login`):**
+```bash
+curl -X POST https://api.revengi.in/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "your_username", "password": "your_password"}'
+```
+
+
+## Endpoints
+
+### Flutter Analysis
+
+#### Analyze Flutter App (`POST /analyze/flutter`)
+Analyze Flutter libraries and extract Dart information.
+
+**Required Files:**
+- `libapp.so`
+- `libflutter.so`
+
+```bash
+curl -X POST https://api.revengi.in/analyze/flutter \
+  -H "X-API-Key: your_api_key" \
+  -F "libapp=@/path/to/libapp.so" \
+  -F "libflutter=@/path/to/libflutter.so"
+```
+
+#### Blutter (`POST /blutter`)
+Advanced Flutter analysis tool.
+
+**Required Files:**
+- `libapp.so`
+- `libflutter.so`
+
+### JNI Analysis
+
+#### Analyze JNI (`POST /analyze/jni`)
+Find JNI function signatures in APK.
+
+**Required Files:**
+- APK file
+
+```bash
+curl -X POST https://api.revengi.in/analyze/jni \
+  -H "X-API-Key: your_api_key" \
+  -F "apk_file=@/path/to/app.apk"
+```
+
+### MT Hook Generation
+
+#### Generate MT Hooks (`POST /mthook`)
+Generate MT Enhanced Hooks for APK.
+
+**Required Files:**
+- APK file
+
+### Dex2C Conversion
+
+#### Convert Using Dex2C (`POST /dex2c`)
+Convert APK using the dex2c API.
+
+**Parameters:**
+- `obfuscate` (optional): Boolean to enable obfuscation
+- `custom_loader` (optional): Custom loader class name
+- `dynamic_register` (optional): Boolean for dynamic registration
+
+**Required Files:**
+- APK file
+- Filter file
+
+## Rate Limits
+
+Our API has rate limits to ensure fair usage. If you exceed the rate limit, you'll receive a `429 Too Many Requests` response.
+
+To check your current rate limit status, refer to the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers in the response.
+
+**For more details on rate limits, please refer to our [Rate Limit Policy](https://api.revengi.in/rate-limits).**
+
+## Response Format
+
+All API endpoints return JSON responses. In case of errors, you'll receive appropriate HTTP status codes and error messages.
+
+```json
+{
+  "success": true,
+  "data": {
+    // Response data
+  }
+}
+```
+
+For more details on each endpoint, please refer to our [API documentation](https://api.revengi.in/docs).
+
+## Support
+
+For API support or questions, contact us at api@revengi.in

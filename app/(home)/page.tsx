@@ -29,8 +29,18 @@ export default function HomePage() {
           Revolutionizing the workflow for reverse engineers and developers.
           Explore powerful tools like Blutter, Smali Grammar, Java-Smali
           converters, Regex Maker, APK Info, and more. All at your fingertips
-          through our easy-to-use Telegram bot.
+          through our easy-to-use Telegram bot or REST API.
         </p>
+        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 max-w-2xl mx-auto mb-8">
+          <h2 className="text-xl font-semibold mb-2">🚀 REST API Available</h2>
+          <p className="text-sm text-gray-600 dark:text-gray-300">
+            Integrate our powerful tools directly into your applications.
+            Access Flutter analysis, JNI analysis, and more through our REST API.
+          </p>
+          <Button asChild variant="link" className="mt-2">
+            <Link href="/docs/api">View API Documentation →</Link>
+          </Button>
+        </div>
       </div>
       <Link
         href="https://t.me/RevEngiBot"
@@ -38,10 +48,13 @@ export default function HomePage() {
       >
         <RainbowButton>Try the Bot</RainbowButton>
       </Link>
-      <br></br>
-      <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+      {/* <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
         <Btns text="Features" href="/docs#full-feature-list" />
         <Btns text="Explore Docs" href="/docs" />
+      </div> */}
+      <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+        <Btns text="Open Web App" href="https://app.revengi.in" />
+        <Btns text="Download Apps" href="/downloads" />
       </div>
       <div className="md:hidden">
         <MarqueeDemoVertical />
@@ -51,6 +64,11 @@ export default function HomePage() {
       </div>
 
       <footer className="mt-16">
+        <div className="flex justify-center gap-4 mb-4">
+          <Link href="/contact" className="text-gray-400 hover:text-gray-300">Contact Us</Link>
+          <Link href="/docs" className="text-gray-400 hover:text-gray-300">Docs</Link>
+          <Link href="/downloads" className="text-gray-400 hover:text-gray-300">Downloads</Link>
+        </div>
         <p className="text-gray-400">
           &copy; {new Date().getFullYear()} RevEngi. All Rights Reserved.
         </p>

@@ -1,9 +1,8 @@
 "use client";
 
 import { Fragment, useState } from "react";
-import { Menu, Transition } from "@headlessui/react";
+import { MenuButton, Transition, Menu, MenuItems, MenuItem } from "@headlessui/react";
 import { ChevronDownIcon } from "lucide-react";
-import Link from "next/link";
 
 const platforms = [
     {
@@ -59,21 +58,27 @@ function DownloadDropdown({
 }) {
     const [selected, setSelected] = useState(options[0]);
 
+    const handleDownload = (opt: { label: string; href: string }) => {
+        setSelected(opt);
+        window.open(opt.href, "_blank");
+    };
+
     return (
         <div className="border rounded-xl p-6 text-center shadow-sm hover:shadow-md transition">
             <div className="text-5xl mb-4">{icon}</div>
             <h2 className="text-xl font-semibold mb-4">RevEngi for {platform}</h2>
             <Menu as="div" className="relative inline-block w-full text-left">
                 <div className="flex">
-                    <Link
+                    <a
                         href={selected.href}
-                        className="flex-1 bg-black text-white py-2 px-4 rounded-l-lg text-sm font-medium hover:bg-gray-800 transition"
+                        className="flex-1 bg-black text-white py-2 px-4 rounded-l-lg text-sm font-medium hover:bg-gray-800 transition text-center"
+                        download
                     >
                         {selected.label}
-                    </Link>
-                    <Menu.Button className="bg-black text-white px-3 rounded-r-lg hover:bg-gray-800 transition">
+                    </a>
+                    <MenuButton className="bg-black text-white px-3 rounded-r-lg hover:bg-gray-800 transition">
                         <ChevronDownIcon className="w-4 h-4" />
-                    </Menu.Button>
+                    </MenuButton>
                 </div>
 
                 <Transition
@@ -85,25 +90,26 @@ function DownloadDropdown({
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                 >
-                    <Menu.Items className="absolute z-10 mt-2 w-full rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <MenuItems className="absolute z-10 mt-2 w-full rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div className="py-1">
                             {options.map((opt) => (
-                                <Menu.Item key={opt.label}>
+                                <MenuItem key={opt.label}>
                                     {({ active }) => (
                                         <button
-                                            onClick={() => setSelected(opt)}
+                                            onClick={() => handleDownload(opt)}
                                             className={`${active ? "bg-gray-100" : ""
                                                 } block w-full text-left px-4 py-2 text-sm text-gray-700`}
                                         >
                                             {opt.label}
                                         </button>
                                     )}
-                                </Menu.Item>
+                                </MenuItem>
                             ))}
                         </div>
-                    </Menu.Items>
+                    </MenuItems>
                 </Transition>
             </Menu>
         </div>
     );
 }
+

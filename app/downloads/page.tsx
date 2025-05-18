@@ -4,6 +4,7 @@ import { Fragment, useState } from "react";
 import { MenuButton, Transition, Menu, MenuItems, MenuItem } from "@headlessui/react";
 import { ChevronDownIcon } from "lucide-react";
 import { useToast } from "@/components/ToastProvider";
+import LatestReleaseNotes from "@/components/ReleaseNotes";
 
 const platforms = [
     {
@@ -44,6 +45,7 @@ export default function Downloads() {
                     <DownloadDropdown key={item.platform} {...item} />
                 ))}
             </div>
+            <LatestReleaseNotes />
         </main>
     );
 }

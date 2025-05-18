@@ -17,19 +17,19 @@ const platforms = [
         platform: "Linux",
         icon: "🐧",
         options: [
-            { label: "AppImage", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/artifacts/RevEngi-Linux.AppImage" },
-            { label: "Deb", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/artifacts/RevEngi-Linux.deb" },
-            { label: "RPM", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/artifacts/RevEngi-Linux.rpm" },
+            { label: "AppImage", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-Linux.AppImage" },
+            { label: "Deb", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-Linux.deb" },
+            { label: "RPM", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-Linux.rpm" },
         ],
     },
     {
         platform: "Android",
         icon: "📱",
         options: [
-            { label: "ARM64", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/artifacts/RevEngi-Android-arm64.apk" },
-            { label: "ARM32", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/artifacts/RevEngi-Android-arm32.apk" },
-            { label: "x64", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/artifacts/RevEngi-Android-x64.apk" },
-            { label: "Universal", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/artifacts/RevEngi-Android-universal.apk" },
+            { label: "ARM64", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-Android-arm64.apk" },
+            { label: "ARM32", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-Android-arm32.apk" },
+            { label: "x64", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-Android-x64.apk" },
+            { label: "Universal", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-Android-universal.apk" },
         ],
     },
 ];

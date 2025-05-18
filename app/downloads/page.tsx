@@ -3,6 +3,7 @@
 import { Fragment, useState } from "react";
 import { MenuButton, Transition, Menu, MenuItems, MenuItem } from "@headlessui/react";
 import { ChevronDownIcon } from "lucide-react";
+import { useToast } from "@/components/ToastProvider";
 
 const platforms = [
     {
@@ -57,10 +58,12 @@ function DownloadDropdown({
     options: { label: string; href: string }[];
 }) {
     const [selected, setSelected] = useState(options[0]);
+    const toast = useToast();
 
     const handleDownload = (opt: { label: string; href: string }) => {
         setSelected(opt);
-        window.open(opt.href, "_blank");
+        toast(`Your ${opt.label} download is starting...`);
+        window.location.href = opt.href;
     };
 
     return (
@@ -69,13 +72,12 @@ function DownloadDropdown({
             <h2 className="text-xl font-semibold mb-4">RevEngi for {platform}</h2>
             <Menu as="div" className="relative inline-block w-full text-left">
                 <div className="flex">
-                    <a
-                        href={selected.href}
+                    <button
+                        onClick={() => handleDownload(selected)}
                         className="flex-1 bg-black text-white py-2 px-4 rounded-l-lg text-sm font-medium hover:bg-gray-800 transition text-center"
-                        download
                     >
                         {selected.label}
-                    </a>
+                    </button>
                     <MenuButton className="bg-black text-white px-3 rounded-r-lg hover:bg-gray-800 transition">
                         <ChevronDownIcon className="w-4 h-4" />
                     </MenuButton>

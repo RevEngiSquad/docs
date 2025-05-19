@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /docs
+Allow: /downloads
+Allow: /contact
+
+# Sitemap
+Sitemap: https://revengi.in/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 120
+
+Disallow: /cgi-bin/

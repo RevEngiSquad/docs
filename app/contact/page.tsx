@@ -30,6 +30,12 @@ export default function ContactPage() {
                         description="Report issues or contribute to our projects"
                         buttons={[{ href: "https://github.com/revengi", buttonText: "View GitHub" }]}
                     />
+                    <ContactCard
+                        icon={<LiaTelegram className="w-8 h-8" />}
+                        title="Support Us"
+                        description="Help us maintain and improve our services"
+                        buttons={[{ href: "/donate", buttonText: "Donate" }]}
+                    />
                 </div>
 
                 <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 mt-8">

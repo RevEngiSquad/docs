@@ -3,10 +3,9 @@ import Link from "next/link";
 export default function DonatePage() {
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-6">Support RevEngiBot</h1>
+            <h1 className="text-3xl font-bold mb-6">Support Us</h1>
 
             <section className="mb-8">
-                <h2 className="text-2xl font-semibold mb-4">Support Us with Premium Subscriptions</h2>
                 <p className="mb-4">
                     While RevEngiBot and RevEngi API remains largely free to use, we’ve introduced some file size limits to manage our server load. As a small team, we don’t profit from this project—but we do rely on community support to keep it running. To help sustain and improve RevEngiBot, we offer premium subscriptions that remove these restrictions and fund our dedicated cloud hosting. Your support enables us to maintain the service and develop even more powerful features!
                 </p>

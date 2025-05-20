@@ -68,7 +68,7 @@ export default function DonatePage() {
                 <h2 className="text-xl font-semibold mb-3">📝 Important Notes:</h2>
                 <ul className="list-disc pl-5 space-y-2">
                     <li>Don't forget to send us the transaction ID or Screenshot to <a href="https://t.me/RevEngiSupportBot" className="text-blue-500 hover:underline">@RevEngiSupportBot</a> (In case you don't get a reply within 24hrs don't forget to report us at our <a href="/contact" className="text-blue-500 hover:underline">Telegram support </a> group) with your Account/UserID to confirm your payment.</li>
-                    <li>Alternatively, you can email the screenshot to<a href="mailto:support@revengi.in" className="text-blue-500 hover:underline">support@revengi.in</a>.</li>
+                    <li>Alternatively, you can email the screenshot to <a href="mailto:support@revengi.in" className="text-blue-500 hover:underline">support@revengi.in</a>.</li>
                     <li>If you're sending via Crypto, ensure you're sending to the correct address & consider Network Fees.</li>
                 </ul>
             </section>

@@ -3,6 +3,26 @@ import Link from "next/link";
 export default function DonatePage() {
     return (
         <div className="container mx-auto px-4 py-8">
+            <section className="mb-8 p-6 bg-pink-50 dark:bg-pink-900/20 rounded-lg border border-pink-200 dark:border-pink-700">
+                <h2 className="text-2xl font-bold mb-2 flex items-center">💖 Help Keep RevEngiBot Free for Everyone</h2>
+                <p className="mb-3">We started RevEngiBot with one goal: to make powerful reverse engineering tools—often locked behind paywalls by other tools we all used—freely accessible to everyone, not to make a profit.</p>
+                <p className="mb-3">Our monthly server cost is just <span className="font-semibold">$20</span>. If only 20 people pitch in $1 each, we can hit that target together.<br />No fancy subscriptions. No tiered limits. Just a shared goal.</p>
+                <div className="mb-3">
+                    <h3 className="font-semibold mb-1">🎯 How It Works:</h3>
+                    <ul className="list-disc pl-5 space-y-1">
+                        <li>If we reach our $20 monthly goal, we’ll remove all usage restrictions for everyone—regardless of how much you donated.</li>
+                        <li>If we don’t reach the goal, usage will continue as it is, with current file size limits.</li>
+                    </ul>
+                </div>
+                <div className="mb-3">
+                    <h3 className="font-semibold mb-1">💵 How to Support:</h3>
+                    <p>Donate any amount (minimum $1) and help us hit our monthly target.</p>
+                </div>
+                <p className="mb-3">📝 After donating, send your transaction ID or screenshot to <a href="https://t.me/RevEngiSupportBot" className="text-blue-500 hover:underline">@RevEngiSupportBot</a> or email it to <a href="mailto:support@revengi.in" className="text-blue-500 hover:underline">support@revengi.in</a>.</p>
+                <p className="mb-3">It’s not about how much you give, it’s about showing up. If we all chip in, everyone benefits.</p>
+                <p className="mb-3 font-semibold">Let’s make this truly free, together. ❤️</p>
+            </section>
+
             <h1 className="text-3xl font-bold mb-6">Support Us</h1>
 
             <section className="mb-8">

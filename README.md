@@ -62,12 +62,3 @@ Contributions are welcome! Feel free to open an issue or submit a pull request i
 ---
 
 Thanks for using [RevEngiBot](https://t.me/RevEngiBot) and supporting our work!
-
-
-### Summary of Changes:
-- Finalised **Home Page UI**
-- Customized the description to reflect that this is the official documentation for **RevEngiBot**.
-- Highlighted key **features** of the bot.
-- Provided instructions on **running the project** locally.
-- Added information about **commands** and **premium plans**.
-- Included links to **Next.js** and **Fumadocs** resources, along with a section for **contributing**.

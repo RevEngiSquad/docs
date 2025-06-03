@@ -26,11 +26,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.revengi.in/docs/premium</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://revengi.in/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -60,7 +60,7 @@ export default function DonatePage() {
                         <div className="space-y-3">
                             <div>
                                 <p className="font-medium">USDT (TRC-20)</p>
-                                <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-1">TTZwdQSKwfN5jDhh95FTij3AE7RnEsovz4</code>
+                                <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-1">TMKxW5Wz3vMdswJuMLkCy9C2RhsidnUGtu</code>
                             </div>
                             <div>
                                 <p className="font-medium">USDT (BEP 20)</p>

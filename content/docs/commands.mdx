@@ -445,6 +445,7 @@ When you use the `/smali` command, the bot will guide you through the process of
 This command allows you to protect your APK files using various tools, packers, obfuscators, and techniques. Currently, the following tools are supported:
 
 - **[DPT Shell](https://github.com/luoyesiqiu/dpt-shell)**
+- **[APKEditor](https://github.com/REAndroid/APKEditor)**
 
 More tools will be added in the future.
 
@@ -804,6 +805,18 @@ After sending the command, the bot will prompt you to select a decompiler from t
   better results than others for specific DEX files.
 </Callout>
 
+## DEX to Jar <a id="dex2jar"></a>
+
+This command converts DEX files to JAR (Java ARchive) format.
+
+**Usage:**
+
+This command must be used as a reply to a DEX file.
+
+```shell
+/dex2jar
+```
+
 ## Dex Repair <a id="dex-repair"></a>
 
 It fixes the DEX magic number and updates the checksum and signature in the DEX header.
@@ -970,6 +983,22 @@ Reply to an APK file with the command:
   and only on APKs you have permission to modify.
 </Callout>
 
+## PairIP Patch <a id="pairip"></a>
+
+This command generates a patch for PairIP, which is often used to bypass certain security mechanisms in APKs.
+
+**Usage:**
+
+Reply to an APKS file with the command:
+
+```shell
+/pairip
+```
+
+<Callout type="warn">
+  **Warning:** Use this command cautiously and only on APKs you have permission to modify. This command is only for educational purposes and should not be used for malicious activities.
+</Callout>
+
 ## APK Scan <a id="scan"></a>
 
 This command scans an APK file to assess its security posture using third-party tools.
@@ -1005,6 +1034,24 @@ Reply to an APK file with the `/scan` command. The bot will then prompt you to s
   of the results will depend on the capabilities of the chosen scanner and the
   complexity of the APK.
 </Callout>
+
+## SSL Patch <a id="sslpatch"></a>
+
+Use this cmd while replying to an `.apk` or `.apks` file to patch SSL pinning in the APK.
+
+**Usage:**
+
+```shell
+/ssl_patch
+```
+
+<Callout type="warn">
+  **Note:**
+  - The converted APK file is not signed.
+  - This is not a permanent and full-proof solution; it may not work on all apps. Please don't come crying to us if it doesn't work. We can't help you with that.
+  - This is only for educational purposes.
+</Callout>
+
 
 ## APK Converter <a id="toapk"></a>
 
@@ -1064,6 +1111,7 @@ This command lists the third-party libraries used in this project. You can also 
 - [Telethon](https://docs.telethon.dev/en/stable/)
 - [AndroBugs2](https://github.com/androbugs2/androbugs2)
 - [ApkEditor](https://github.com/REAndroid/APKEditor)
+- [APKiD](https://github.com/rednaga/APKiD)
 - [androguard](https://github.com/androguard/androguard)
 - [BlackObfuscator](https://github.com/CodingGay/BlackObfuscator)
 - [bundletool](https://github.com/google/bundletool)
@@ -1080,3 +1128,5 @@ This command lists the third-party libraries used in this project. You can also 
 - [sigtool](https://github.com/muhammadrizwan87/sigtool)
 - [APKiD](https://github.com/rednaga/APKiD)
 - [Dex2Jar](https://github.com/pxb1988/dex2jar)
+- [flutter_ssl_patch](https://github.com/AbhiTheModder/termux-scripts/blob/main/flutter_ssl_patch.py)
+- [ssl_patch](https://github.com/AbhiTheModder/termux-scripts/blob/main/ssl_patch.py)

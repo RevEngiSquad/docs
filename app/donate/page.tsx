@@ -35,7 +35,7 @@ export default function DonatePage() {
                 </p>
             </section>
 
-            <section className="mb-8">
+            <section className="mb-8" id="payment-methods">
                 <h2 className="text-2xl font-semibold mb-4">📬 Payment Methods</h2>
                 <div className="space-y-4">
                     <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
@@ -51,7 +51,7 @@ export default function DonatePage() {
 
                     <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
                         <h3 className="font-semibold mb-2">Binance Pay [No Network Fees]</h3>
-                        <p>Select your appropriate plan and send the payment to below Binance ID [Only USDT].</p>
+                        <p>Send the payment to below Binance ID [Only USDT].</p>
                         <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-2">570920434</code>
                     </div>
 

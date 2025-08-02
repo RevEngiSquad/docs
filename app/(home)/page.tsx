@@ -17,7 +17,13 @@ export const metadata: Metadata = {
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
-export default function HomePage() {
+interface Sponsor {
+  name: string;
+  icon: string;
+}
+
+export default async function HomePage() {
+  const sponsors = await fetchSponsors();
   return (
     <main className="flex h-screen flex-col text-center px-4 sm:px-6">
       <div className="text-center">
@@ -58,6 +64,41 @@ export default function HomePage() {
       <div className="hidden md:block">
         <MarqueeDemo />
       </div>
+
+      <section className="py-12">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-8">
+          Our <span className="text-blue-400">Sponsors</span>
+        </h2>
+        <div className="relative max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+            {sponsors.map((sponsor: Sponsor, index: number) => (
+              <div
+                key={`${sponsor.name}-${index}`}
+                className={ny(
+                  "group relative flex flex-col items-center p-4 rounded-xl",
+                  "bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm",
+                  "border border-gray-200 dark:border-gray-700/50",
+                  "hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300",
+                  "transform hover:-translate-y-1"
+                )}
+              >
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 mb-3">
+                  <img
+                    src={sponsor.icon}
+                    alt={`${sponsor.name} logo`}
+                    className="w-full h-full object-contain rounded-full border-2 border-blue-400/30 group-hover:border-blue-400 transition-colors"
+                  />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/10 to-purple-400/10 group-hover:opacity-100 opacity-0 transition-opacity" />
+                </div>
+                <h3 className="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-400 transition-colors">
+                  {sponsor.name}
+                </h3>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/5 to-blue-400/0 group-hover:opacity-100 opacity-0 transition-opacity" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <footer className="mt-16">
         <div className="flex justify-center gap-4 mb-4">
@@ -120,7 +161,7 @@ function ReviewCard({
   return (
     <figure className={className}>
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <img className="rounded-full" width="32" height="32" alt={`${name} logo`} src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -169,4 +210,22 @@ function MarqueeDemo() {
       <div className="dark:from-background pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white"></div>
     </div>
   );
+}
+
+async function fetchSponsors() {
+  try {
+    const BASE_URL = process.env.NODE_ENV === "production"
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000";
+
+    const res = await fetch(`${BASE_URL}/sponsors.json`);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch sponsors: ${res.status}`);
+    }
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching sponsors:", error);
+    return [];
+  }
 }

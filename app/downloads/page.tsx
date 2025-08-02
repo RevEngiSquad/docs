@@ -34,6 +34,13 @@ const platforms = [
             { label: "Universal", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-Android-universal.apk" },
         ],
     },
+    {
+        platform: "iOS",
+        icon: "🍎",
+        options: [
+            { label: "IPA", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-iOS.ipa" },
+        ],
+    },
 ];
 
 export default function Downloads() {
@@ -98,10 +105,10 @@ function DownloadDropdown({
                         <div className="py-1">
                             {options.map((opt) => (
                                 <MenuItem key={opt.label}>
-                                    {({ active }) => (
+                                    {({ focus }) => (
                                         <button
                                             onClick={() => handleDownload(opt)}
-                                            className={`${active ? "bg-gray-100" : ""
+                                            className={`${focus ? "bg-gray-100" : ""
                                                 } block w-full text-left px-4 py-2 text-sm text-gray-700`}
                                         >
                                             {opt.label}

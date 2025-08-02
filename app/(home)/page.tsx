@@ -48,10 +48,6 @@ export default function HomePage() {
       >
         <RainbowButton>Try the Bot</RainbowButton>
       </Link>
-      {/* <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
-        <Btns text="Features" href="/docs#full-feature-list" />
-        <Btns text="Explore Docs" href="/docs" />
-      </div> */}
       <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
         <Btns text="Open Web App" href="https://app.revengi.in" />
         <Btns text="Download Apps" href="/downloads" />
@@ -82,8 +78,8 @@ export default function HomePage() {
         aria-label="Donate to RevEngiBot"
         style={{ boxShadow: '0 4px 24px 0 rgba(236, 72, 153, 0.25)' }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white drop-shadow">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.54 0-2.897.792-3.687 2.007C11.585 4.542 10.228 3.75 8.688 3.75 6.099 3.75 4 5.765 4 8.25c0 7.22 8.25 11.25 8.25 11.25s8.25-4.03 8.25-11.25z" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white drop-shadow">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3.25 9.75c3 3.5 4.75 4.5 4.75 4.5s1.75-1 4.75-4.5 1-7-1.5-7-3.25 3-3.25 3-.75-3-3.25-3-4.5 3.5-1.5 7z" />
         </svg>
         <span className="font-semibold text-base tracking-wide group-hover:scale-105 transition-transform">Donate</span>
       </a>

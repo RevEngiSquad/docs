@@ -14,7 +14,7 @@ const reviews = [
     {
         name: 'Suryansh',
         username: '@Suryanshlegend',
-        body: 'Thanks to this amazing bot you have saves 14-15 GB of my termux space',
+        body: 'Thanks to this amazing bot you have saved 14-15 GB of my termux space',
         img: 'https://i.imgur.com/PohlYpJ.png',
     },
     {
@@ -68,7 +68,7 @@ const reviews = [
     {
         name: 'Marc Nin',
         username: '@mragonias',
-        body: 'It\'s absolutly amazing.\nSince today I only need MT, termux and this tool',
+        body: 'It\'s absolutely amazing.\nSince today I only need MT, termux and this tool',
         img: 'https://i.imgur.com/DyhvHbW.jpeg',
     },
     {

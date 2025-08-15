@@ -38,7 +38,7 @@ const platforms = [
         platform: "iOS",
         icon: "🍎",
         options: [
-            { label: "IPA", href: "https://github.com/RevEngiSquad/revengi-app/releases/latest/download/RevEngi-iOS.ipa" },
+            { label: "IPA", href: "https://github.com/RevEngiSquad/revengi-app/releases/download/v1.2.5/RevEngi-iOS.ipa" },
         ],
     },
 ];

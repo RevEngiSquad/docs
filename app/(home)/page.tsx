@@ -5,6 +5,7 @@ import { ny } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 import reviews from "@/app/(home)/reviews";
 import type { Metadata } from "next";
+import sponsorData from '../sponsors.json';
 
 export const metadata: Metadata = {
   title: "RevEngi",
@@ -214,16 +215,7 @@ function MarqueeDemo() {
 
 async function fetchSponsors() {
   try {
-    const BASE_URL = process.env.NODE_ENV === "production"
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "http://localhost:3000";
-
-    const res = await fetch(`${BASE_URL}/sponsors.json`);
-
-    if (!res.ok) {
-      throw new Error(`Failed to fetch sponsors: ${res.status}`);
-    }
-    return await res.json();
+    return sponsorData;
   } catch (error) {
     console.error("Error fetching sponsors:", error);
     return [];

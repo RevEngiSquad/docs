@@ -28,7 +28,7 @@ export default function ContactPage() {
                         icon={<GitHubLogoIcon className="w-8 h-8" />}
                         title="GitHub"
                         description="Report issues or contribute to our projects"
-                        buttons={[{ href: "https://github.com/revengi", buttonText: "View GitHub" }]}
+                        buttons={[{ href: "https://github.com/RevEngiSquad", buttonText: "View GitHub" }]}
                     />
                     <ContactCard
                         icon={<LiaTelegram className="w-8 h-8" />}

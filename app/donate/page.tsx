@@ -1,33 +1,58 @@
-import Link from "next/link";
+'use client';
+
+import { useState } from 'react';
+
+function CopyButton({ text }: { text: string }) {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = async () => {
+        try {
+            await navigator.clipboard.writeText(text);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    };
+
+    return (
+        <button
+            onClick={handleCopy}
+            className="absolute top-2 right-2 p-1.5 rounded bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors text-xs"
+            title="Copy to clipboard"
+        >
+            {copied ? (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+            ) : (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+            )}
+        </button>
+    );
+}
+
+function CodeBlock({ children }: { children: string }) {
+    return (
+        <div className="relative">
+            <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-2 break-all whitespace-pre-wrap pr-10">
+                {children}
+            </code>
+            <CopyButton text={children} />
+        </div>
+    );
+}
 
 export default function DonatePage() {
     return (
         <div className="container mx-auto px-4 py-8">
-{/*             <section className="mb-8 p-6 bg-pink-50 dark:bg-pink-900/20 rounded-lg border border-pink-200 dark:border-pink-700">
-                <h2 className="text-2xl font-bold mb-2 flex items-center">💖 Help Keep RevEngiBot Free for Everyone</h2>
-                <p className="mb-3">We started RevEngiBot with one goal: to make powerful reverse engineering tools—often locked behind paywalls by other tools we all used—freely accessible to everyone, not to make a profit.</p>
-                <p className="mb-3">Our monthly server cost is just <span className="font-semibold">$20</span>. If only 20 people pitch in $1 each, we can hit that target together.<br />No fancy subscriptions. No tiered limits. Just a shared goal.</p>
-                <div className="mb-3">
-                    <h3 className="font-semibold mb-1">🎯 How It Works:</h3>
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>If we reach our $20 monthly goal, we’ll remove all usage restrictions for everyone—regardless of how much you donated.</li>
-                        <li>If we don’t reach the goal, usage will continue as it is, with current file size limits.</li>
-                    </ul>
-                </div>
-                <div className="mb-3">
-                    <h3 className="font-semibold mb-1">💵 How to Support:</h3>
-                    <p>Donate any amount (minimum $1) and help us hit our monthly target.</p>
-                </div>
-                <p className="mb-3">📝 After donating, send your transaction ID or screenshot to <a href="https://t.me/RevEngiSupportBot" className="text-blue-500 hover:underline">@RevEngiSupportBot</a> or email it to <a href="mailto:support@revengi.in" className="text-blue-500 hover:underline">support@revengi.in</a>.</p>
-                <p className="mb-3">It’s not about how much you give, it’s about showing up. If we all chip in, everyone benefits.</p>
-                <p className="mb-3 font-semibold">Let’s make this truly free, together. ❤️</p>
-            </section> */}
-
             <h1 className="text-3xl font-bold mb-6">Support Us</h1>
 
             <section className="mb-8">
                 <p className="mb-4">
-                    While RevEngiBot and RevEngi API remains largely free to use, we’ve introduced some file size limits to manage our server load. As a small team, we don’t profit from this project—but we do rely on community support to keep it running. To help sustain and improve RevEngiBot, we offer premium subscriptions that remove these restrictions and fund our dedicated cloud hosting. Your support enables us to maintain the service and develop even more powerful features!
+                    While RevEngiBot and RevEngi API remains largely free to use, we've introduced some file size limits to manage our server load. As a small team, we don't profit from this project—but we do rely on community support to keep it running. To help sustain and improve RevEngiBot, we offer premium subscriptions that remove these restrictions and fund our dedicated cloud hosting. Your support enables us to maintain the service and develop even more powerful features!
                 </p>
                 <p className="mb-4">
                     Instead of paywalls, we prefer to <em>reward</em> those who support us by increasing their usage limits ❤️.
@@ -52,7 +77,7 @@ export default function DonatePage() {
                     <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
                         <h3 className="font-semibold mb-2">Binance Pay [No Network Fees]</h3>
                         <p>Send the payment to below Binance ID [Only USDT].</p>
-                        <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-2">570920434</code>
+                        <CodeBlock>570920434</CodeBlock>
                     </div>
 
                     <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
@@ -60,26 +85,26 @@ export default function DonatePage() {
                         <div className="space-y-3">
                             <div>
                                 <p className="font-medium">USDT (TRC-20)</p>
-                                <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-1">TTZwdQSKwfN5jDhh95FTij3AE7RnEsovz4</code>
+                                <CodeBlock>TTZwdQSKwfN5jDhh95FTij3AE7RnEsovz4</CodeBlock>
                             </div>
                             <div>
                                 <p className="font-medium">USDT (BEP 20)</p>
-                                <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-1">0x85588e07617eac195b98c6b76d5d45c4ce32d531</code>
+                                <CodeBlock>0x85588e07617eac195b98c6b76d5d45c4ce32d531</CodeBlock>
                             </div>
                             <div>
                                 <p className="font-medium">BTC (BITCOIN)</p>
-                                <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-1">bc1qqq0gcdp2quvuhed8kv8lpdhrdkej32lpu0wrsd</code>
+                                <CodeBlock>bc1qqq0gcdp2quvuhed8kv8lpdhrdkej32lpu0wrsd</CodeBlock>
                             </div>
                             <div>
                                 <p className="font-medium">ETH (ERC 20)</p>
-                                <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-1">0x97b5122FF1eA32139693C5221C83fe9c6D7298D3</code>
+                                <CodeBlock>0x97b5122FF1eA32139693C5221C83fe9c6D7298D3</CodeBlock>
                             </div>
                         </div>
                     </div>
 
                     <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
                         <h3 className="font-semibold mb-2">UPI</h3>
-                        <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-1">smishra247@airtel</code>
+                        <CodeBlock>smishra247@airtel</CodeBlock>
                     </div>
                 </div>
             </section>

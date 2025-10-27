@@ -5,7 +5,7 @@ import { ny } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 import reviews from "@/app/(home)/reviews";
 import type { Metadata } from "next";
-import sponsorData from '../sponsors.json';
+import sponsors from '../sponsors.json';
 
 export const metadata: Metadata = {
   title: "RevEngi",
@@ -24,7 +24,6 @@ interface Sponsor {
 }
 
 export default async function HomePage() {
-  const sponsors = await fetchSponsors();
   return (
     <main className="flex h-screen flex-col text-center px-4 sm:px-6">
       <div className="text-center">
@@ -106,6 +105,7 @@ export default async function HomePage() {
           <Link href="/contact" className="text-gray-400 hover:text-gray-300">Contact Us</Link>
           <Link href="/docs" className="text-gray-400 hover:text-gray-300">Docs</Link>
           <Link href="/downloads" className="text-gray-400 hover:text-gray-300">Downloads</Link>
+          <Link href="/privacy" className="text-gray-400 hover:text-gray-300">Privacy Policy</Link>
         </div>
         <p className="text-gray-400">
           &copy; {new Date().getFullYear()} RevEngi. All Rights Reserved.
@@ -211,13 +211,4 @@ function MarqueeDemo() {
       <div className="dark:from-background pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white"></div>
     </div>
   );
-}
-
-async function fetchSponsors() {
-  try {
-    return sponsorData;
-  } catch (error) {
-    console.error("Error fetching sponsors:", error);
-    return [];
-  }
 }

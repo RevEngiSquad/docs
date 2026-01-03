@@ -985,7 +985,7 @@ Reply to an APK file with the command:
 
 ## PairIP Patch <a id="pairip"></a>
 
-This command generates a patch for PairIP, which is often used to bypass certain security mechanisms in APKs.
+This command generates a patch for **PairIP**, which is often used to bypass certain security mechanisms in APKs.
 
 **Usage:**
 
@@ -994,6 +994,85 @@ Reply to an APKS file with the command:
 ```shell
 /pairip
 ```
+
+After sending this command, you’ll be prompted to choose between two methods:
+
+- **Old Method**
+- **New Method**
+
+### Old Method
+
+The **Old Method** works exactly as before — no changes have been introduced.  
+Refer to prior documentation for its complete workflow.
+
+### New Method
+
+The **New Method** introduces a revised process for applying the PairIP patch.  
+Follow the steps below carefully.
+
+#### Step 1: Upload and Process
+
+1. Upload your `.apks` file.  
+2. Reply to it with the command:
+   ```shell
+   /pairip
+   ```
+3. When prompted, select **New Method**.  
+4. The bot will process your APK and generate **two output files**:
+   - `<original_name>_merged.apk`
+   - `<original_name>_pairip.apk`
+
+You **only need to download the `_pairip.apk`** file. The `_merged.apk` file will be used later in processing and does **not** need to be downloaded.
+
+> **Note:** The generated APK will be **unsigned**.  
+> - On **rooted devices**, you can install it if signature verification is disabled.  
+> - On **non-root devices**, use virtual environments such as **VMOS**, **VPhoneGaGa**, etc.
+
+#### Step 2: Base APK Replacement
+
+Before launching the app, you’ll need to replace the installed base APK:
+
+- **Using MT Manager**
+
+1. Install the `_pairip.apk` file but **don’t launch it yet**.  
+2. Open **MT Manager** and locate the installed app.  
+3. View its **APK path**. This is usually something like:
+   ```
+   /data/app/~~BxxVXv9VabywdisFaGQqVQ==/com.tempmail-JWR28RfeVeG569PXZg69ew==/base.apk
+   ```
+4. Tap on the path to open the directory.  
+5. From your original `.apks` archive (the one you uploaded to the bot), extract the `base.apk`.  
+6. Replace the `base.apk` located in the app’s installation directory with this extracted one.
+
+Now, you can **launch your app**.  
+If it crashes, proceed to the next step — that’s normal at this stage.
+
+#### Step 3: Retrieve PairIP Data
+
+1. Return to MT Manager and view the app’s **Data directory**.  
+   It should be similar to:
+   ```
+   /data/user/0/<package_name>
+   ```
+   Example:
+   ```
+   /data/user/0/com.tempmail
+   ```
+2. Inside this directory, locate the `dictionary` folder.  
+3. Open it and find the file named `pairip.json`.  
+4. Upload `pairip.json` to the bot as a **reply** to the `_merged.apk` (the one generated earlier).
+
+The bot will then process your JSON and produce the **PairIP-removed APK** — your final output.
+
+- **Alternative via ADB**
+
+If you prefer command-line tools:
+
+1. Use ADB to find the installed base APK path:
+   ```shell
+   pm path <package_name>
+   ```
+2. Follow the same steps as above for replacing the base APK and locating `pairip.json`.
 
 <Callout type="warn">
   **Warning:** Use this command cautiously and only on APKs you have permission to modify. This command is only for educational purposes and should not be used for malicious activities.
@@ -1103,30 +1182,4 @@ This command provides tools for interacting with XML and AXML (Android XML) file
 
 ## Credits <a id="credits"></a>
 
-This command lists the third-party libraries used in this project. You can also view this information by using the command `/credits`.
-
-**Core Functionality & Plugins:**
-
-- ✨ [Team RevEngi](https://github.com/RevEngiSquad)
-- [Telethon](https://docs.telethon.dev/en/stable/)
-- [AndroBugs2](https://github.com/androbugs2/androbugs2)
-- [ApkEditor](https://github.com/REAndroid/APKEditor)
-- [APKiD](https://github.com/rednaga/APKiD)
-- [androguard](https://github.com/androguard/androguard)
-- [BlackObfuscator](https://github.com/CodingGay/BlackObfuscator)
-- [bundletool](https://github.com/google/bundletool)
-- [blutter-termux](https://github.com/AbhiTheModder/blutter-termux)
-- [CFR Decompiler](https://github.com/leibnitz27/cfr)
-- [Dex2C](https://github.com/codehasan/dex2c)
-- [pyxamstore](https://github.com/AbhiTheModder/pyxamstore)
-- [dpt-shell](https://github.com/luoyesiqiu/dpt-shell)
-- [Gemini](https://gemini.google.com/)
-- [Cohere](https://cohere.com/)
-- [java2smali](https://github.com/RevEngiSquad/java2smali)
-- [jni_helper](https://github.com/evilpan/jni_helper)
-- [jadx](https://github.com/skylot/jadx)
-- [sigtool](https://github.com/muhammadrizwan87/sigtool)
-- [APKiD](https://github.com/rednaga/APKiD)
-- [Dex2Jar](https://github.com/pxb1988/dex2jar)
-- [flutter_ssl_patch](https://github.com/AbhiTheModder/termux-scripts/blob/main/flutter_ssl_patch.py)
-- [ssl_patch](https://github.com/AbhiTheModder/termux-scripts/blob/main/ssl_patch.py)
+This command lists the third-party libraries used in this project. You can view this information by using the command `/credits`.

@@ -106,6 +106,7 @@ export default async function HomePage() {
           <Link href="/docs" className="text-gray-400 hover:text-gray-300">Docs</Link>
           <Link href="/downloads" className="text-gray-400 hover:text-gray-300">Downloads</Link>
           <Link href="/privacy" className="text-gray-400 hover:text-gray-300">Privacy Policy</Link>
+          <Link href="https://status.revengi.in" className="text-gray-400 hover:text-gray-300">Status</Link>
         </div>
         <p className="text-gray-400">
           &copy; {new Date().getFullYear()} RevEngi. All Rights Reserved.

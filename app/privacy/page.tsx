@@ -294,7 +294,9 @@ export default function PrivacyPolicyPage() {
                 <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
                     <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
                         By using RevEngi Services, you acknowledge that you have read and understood this
-                        Privacy Policy and agree to its terms.
+                        Privacy Policy and agree to its <a href="/terms" className="text-blue-500 hover:underline">
+                            Terms of Service
+                        </a>.
                     </p>
                 </div>
             </div>

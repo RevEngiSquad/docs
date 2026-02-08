@@ -28,8 +28,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                     <p className="text-gray-700 dark:text-gray-300">
                         By using our Services, you agree to the collection and use of information in
-                        accordance with this policy. If you do not agree with our policies and practices,
-                        please do not use our Services.
+                        accordance with this policy. If you do not agree with our policies and practices, you must <strong>immediately cease all use</strong> of our Services.
                     </p>
                 </section>
 

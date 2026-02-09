@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import PaymentCard from '@/components/PaymentCard';
+import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 function CopyButton({ text }: { text: string }) {
     const [copied, setCopied] = useState(false);
@@ -35,87 +37,158 @@ function CopyButton({ text }: { text: string }) {
 }
 
 function CodeBlock({ children }: { children: string }) {
-    return (
-        <div className="relative">
-            <code className="block p-2 bg-gray-200 dark:bg-gray-700 rounded mt-2 break-all whitespace-pre-wrap pr-10">
-                {children}
-            </code>
-            <CopyButton text={children} />
-        </div>
-    );
+  return (
+    <div className="relative mt-2">
+      <code
+        className="
+          block
+          rounded-lg
+          border border-border
+          bg-muted/60
+          px-3 py-2
+          text-sm
+          font-mono
+          text-foreground
+          break-all whitespace-pre-wrap
+          pr-10
+          backdrop-blur
+        "
+      >
+        {children}
+      </code>
+
+      <CopyButton text={children} />
+    </div>
+  );
 }
 
 export default function DonatePage() {
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-6">Support Us</h1>
-
             <section className="mb-8">
-                <p className="mb-4">
-                    While RevEngiBot and RevEngi API remains largely free to use, we've introduced some file size limits to manage our server load. As a small team, we don't profit from this project—but we do rely on community support to keep it running. To help sustain and improve RevEngiBot, we offer premium subscriptions that remove these restrictions and fund our dedicated cloud hosting. Your support enables us to maintain the service and develop even more powerful features!
-                </p>
-                <p className="mb-4">
-                    Instead of paywalls, we prefer to <em>reward</em> those who support us by increasing their usage limits ❤️.
-                    If you'd like to contribute, simply donate any amount and let us know, we'll be happy to extend your access accordingly!
-                </p>
+              <h1 className="text-3xl font-bold mb-6">
+                Become a Sponsor
+              </h1>
+
+              <p className="mb-6 text-muted-foreground">
+                Want to support RevEngi publicly? Sponsors who contribute are featured on our
+                homepage as a token of appreciation. If you're interested in sponsoring,
+                donate any amount and reach out — we’ll take care of the rest 🤝
+              </p>
+
+              <h2 className="text-2xl font-semibold mb-4">
+                Support Us
+              </h2>
+              <p className="mb-4">
+                  While RevEngiBot and RevEngi API remains largely free to use, we've introduced some file size limits to manage our server load. As a small team, we don't profit from this project—but we do rely on community support to keep it running. To help sustain and improve RevEngiBot, we offer premium subscriptions that remove these restrictions and fund our dedicated cloud hosting. Your support enables us to maintain the service and develop even more powerful features!
+              </p>
+              <p className="mb-4">
+                  Instead of paywalls, we prefer to <em>reward</em> those who support us by increasing their usage limits ❤️.
+                  If you'd like to contribute, simply donate any amount and let us know, we'll be happy to extend your access accordingly!
+              </p>
+            </section>
+            <section className="mb-10" id="payment-methods">
+              <h2 className="text-2xl font-semibold mb-6">
+                Payment methods
+              </h2>
+              <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+                  <PaymentCard
+                    title="Patreon"
+                    description="Subscribe via Patreon and get premium access automatically."
+                    badge="Recommended"
+                  >
+                    <a
+                      href="https://www.patreon.com/abhithemodder/shop"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:underline"
+                    >
+                      Visit Patreon →
+                    </a>
+                  </PaymentCard>
+
+                  <PaymentCard
+                    title="UPI"
+                    description="Instant transfer (India)."
+                  >
+                    <CodeBlock>smishra247@airtel</CodeBlock>
+                  </PaymentCard>
+
+                  <PaymentCard
+                    title="Binance Pay"
+                    description="No network fees. USDT only."
+                    badge="Zero fees"
+                  >
+                    <CodeBlock>570920434</CodeBlock>
+                  </PaymentCard>
+
+                  <PaymentCard
+                    title="Crypto Payments"
+                    description="Manual verification required."
+                  >
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-sm font-medium">USDT (TRC-20)</p>
+                        <CodeBlock>TTZwdQSKwfN5jDhh95FTij3AE7RnEsovz4</CodeBlock>
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-medium">USDT (BEP-20)</p>
+                        <CodeBlock>0x85588e07617eac195b98c6b76d5d45c4ce32d531</CodeBlock>
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-medium">BTC</p>
+                        <CodeBlock>bc1qqq0gcdp2quvuhed8kv8lpdhrdkej32lpu0wrsd</CodeBlock>
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-medium">ETH</p>
+                        <CodeBlock>0x97b5122FF1eA32139693C5221C83fe9c6D7298D3</CodeBlock>
+                      </div>
+                    </div>
+                  </PaymentCard>
+
+              </div>
             </section>
 
-            <section className="mb-8" id="payment-methods">
-                <h2 className="text-2xl font-semibold mb-4">📬 Payment Methods</h2>
-                <div className="space-y-4">
-                    <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                        <h3 className="font-semibold mb-2">Patreon</h3>
-                        <p>Select your appropriate plan and send the payment using the link below.</p>
-                        <a href="https://www.patreon.com/abhithemodder/shop"
-                            className="text-blue-500 hover:underline"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            Click Here
-                        </a>
-                    </div>
+            <section className="mt-10 rounded-xl border border-border bg-muted/30 p-6">
+              <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                <InfoCircledIcon className="w-5 h-5" />
+                Important notes
+              </h2>
 
-                    <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                        <h3 className="font-semibold mb-2">Binance Pay [No Network Fees]</h3>
-                        <p>Send the payment to below Binance ID [Only USDT].</p>
-                        <CodeBlock>570920434</CodeBlock>
-                    </div>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li>
+                  After donating, please send the transaction ID or screenshot to{" "}
+                  <a
+                    href="https://t.me/RevEngiSupportBot"
+                    className="text-foreground hover:underline"
+                  >
+                    @RevEngiSupportBot
+                  </a>{" "}
+                  along with your Account / User ID.
+                  If you don’t receive a reply within 24 hours, report it in our{" "}
+                  <a href="/contact" className="text-foreground hover:underline">
+                    Telegram support group
+                  </a>.
+                </li>
 
-                    <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                        <h3 className="font-semibold mb-2">Crypto Payments</h3>
-                        <div className="space-y-3">
-                            <div>
-                                <p className="font-medium">USDT (TRC-20)</p>
-                                <CodeBlock>TTZwdQSKwfN5jDhh95FTij3AE7RnEsovz4</CodeBlock>
-                            </div>
-                            <div>
-                                <p className="font-medium">USDT (BEP 20)</p>
-                                <CodeBlock>0x85588e07617eac195b98c6b76d5d45c4ce32d531</CodeBlock>
-                            </div>
-                            <div>
-                                <p className="font-medium">BTC (BITCOIN)</p>
-                                <CodeBlock>bc1qqq0gcdp2quvuhed8kv8lpdhrdkej32lpu0wrsd</CodeBlock>
-                            </div>
-                            <div>
-                                <p className="font-medium">ETH (ERC 20)</p>
-                                <CodeBlock>0x97b5122FF1eA32139693C5221C83fe9c6D7298D3</CodeBlock>
-                            </div>
-                        </div>
-                    </div>
+                <li>
+                  Alternatively, you can email the screenshot to{" "}
+                  <a
+                    href="mailto:support@revengi.in"
+                    className="text-foreground hover:underline"
+                  >
+                    support@revengi.in
+                  </a>.
+                </li>
 
-                    <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                        <h3 className="font-semibold mb-2">UPI</h3>
-                        <CodeBlock>smishra247@airtel</CodeBlock>
-                    </div>
-                </div>
-            </section>
-
-            <section className="mt-8 p-4 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg">
-                <h2 className="text-xl font-semibold mb-3">📝 Important Notes:</h2>
-                <ul className="list-disc pl-5 space-y-2">
-                    <li>Don't forget to send us the transaction ID or screenshot to <a href="https://t.me/RevEngiSupportBot" className="text-blue-500 hover:underline">@RevEngiSupportBot</a> (In case you don't get a reply within 24hrs don't forget to report us at our <a href="/contact" className="text-blue-500 hover:underline">Telegram support </a> group) with your Account/UserID to confirm your payment.</li>
-                    <li>Alternatively, you can email the screenshot to <a href="mailto:support@revengi.in" className="text-blue-500 hover:underline">support@revengi.in</a>.</li>
-                    <li>If you're sending via Crypto, ensure you're sending to the correct address & consider Network Fees.</li>
-                </ul>
+                <li>
+                  For crypto payments, please double-check the destination address and
+                  consider network fees before sending.
+                </li>
+              </ul>
             </section>
         </div>
     );

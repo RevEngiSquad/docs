@@ -38,15 +38,32 @@ export default async function HomePage() {
           converters, Regex Maker, APK Info, and more. All at your fingertips
           through our easy-to-use Telegram bot or REST API.
         </p>
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 max-w-2xl mx-auto mb-8">
-          <h2 className="text-xl font-semibold mb-2">🚀 REST API Available</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-300">
-            Integrate our powerful tools directly into your applications.
-            Access Flutter analysis, JNI analysis, and more through our REST API.
+        <div
+          className="
+            max-w-2xl mx-auto mb-10
+            rounded-xl border border-border/40
+            bg-background/60 backdrop-blur
+            p-5 text-left
+            transition-all
+            hover:bg-accent/30 hover:scale-105 hover:shadow-lg
+          "
+        >
+          <h2 className="font-mono text-sm font-semibold text-foreground flex items-center gap-2">
+            <span className="text-blue-500">//</span> REST API
+          </h2>
+
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+            Programmatic access to RevEngi tools including Flutter analysis,
+            JNI inspection, and more — ready to integrate into your own workflows.
           </p>
-          <Button asChild variant="link" className="mt-2">
-            <Link href="/docs/api">View API Documentation →</Link>
-          </Button>
+
+          <div className="mt-3">
+            <Button asChild variant="link" className="px-0">
+              <Link href="/docs/api">
+                View API Documentation →
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
       <Link
@@ -80,30 +97,84 @@ export default async function HomePage() {
               justify-center
             ">
             {sponsors.map((sponsor: Sponsor, index: number) => (
-              <div
-                key={`${sponsor.name}-${index}`}
-                className={ny(
-                  "group relative flex flex-col items-center p-4 rounded-xl",
-                  "bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm",
-                  "border border-gray-200 dark:border-gray-700/50",
-                  "hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300",
-                  "transform hover:-translate-y-1"
-                )}
-              >
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 mb-3">
-                  <img
-                    src={sponsor.icon}
-                    alt={`${sponsor.name} logo`}
-                    className="w-full h-full object-contain rounded-full border-2 border-blue-400/30 group-hover:border-blue-400 transition-colors"
-                  />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/10 to-purple-400/10 group-hover:opacity-100 opacity-0 transition-opacity" />
+                <div
+                  key={`${sponsor.name}-${index}`}
+                  className={ny(
+                    "group relative flex flex-col items-center p-4 rounded-xl",
+                    "border border-border/40",
+                    "bg-background/60 backdrop-blur",
+                    "transition-all duration-300",
+                    "hover:bg-accent/30 hover:scale-105 hover:shadow-lg"
+                  )}
+                >
+                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 mb-3">
+                    <img
+                      src={sponsor.icon}
+                      alt={`${sponsor.name} logo`}
+                      className="
+                        w-full h-full object-contain rounded-full
+                        border border-border/50
+                        transition-all duration-300
+                        group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.25)]
+                        dark:group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.12)]
+                      "
+                    />
+                  </div>
+
+                  <h3
+                    className="
+                      text-sm sm:text-base font-semibold
+                      text-foreground/80
+                      transition-all duration-300
+                      group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.35)]
+                      dark:group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.2)]
+                    "
+                  >
+                    {sponsor.name}
+                  </h3>
                 </div>
-                <h3 className="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-400 transition-colors">
-                  {sponsor.name}
-                </h3>
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/5 to-blue-400/0 group-hover:opacity-100 opacity-0 transition-opacity" />
-              </div>
             ))}
+
+            <Link
+              href="/donate"
+              className={ny(
+                "group relative flex flex-col items-center justify-center p-4 rounded-xl",
+                "border border-dashed border-border/50",
+                "bg-background/40 backdrop-blur",
+                "transition-all duration-300",
+                "hover:bg-accent/30 hover:scale-105 hover:shadow-lg"
+              )}
+            >
+              {/* Plus icon */}
+              <div
+                className="
+                  flex items-center justify-center
+                  w-16 h-16 sm:w-20 sm:h-20 mb-3
+                  rounded-full border border-border/50
+                  text-2xl font-light
+                  text-muted-foreground
+                  transition-all duration-300
+                  group-hover:text-foreground
+                  group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.25)]
+                  dark:group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.12)]
+                "
+              >
+                +
+              </div>
+
+              <h3
+                className="
+                  text-sm sm:text-base font-semibold
+                  text-muted-foreground
+                  transition-all duration-300
+                  group-hover:text-foreground
+                  group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.35)]
+                  dark:group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.2)]
+                "
+              >
+                Become a Sponsor
+              </h3>
+            </Link>
           </div>
         </div>
       </section>

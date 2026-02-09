@@ -7,6 +7,8 @@ import reviews from "@/app/(home)/reviews";
 import type { Metadata } from "next";
 import sponsors from '../sponsors.json';
 import { Footer } from "@/components/footer";
+import { FiPlus } from "react-icons/fi";
+import { BiDonateHeart } from "react-icons/bi";
 
 export const metadata: Metadata = {
   title: "RevEngi",
@@ -145,22 +147,21 @@ export default async function HomePage() {
                 "hover:bg-accent/30 hover:scale-105 hover:shadow-lg"
               )}
             >
-              {/* Plus icon */}
-              <div
-                className="
-                  flex items-center justify-center
-                  w-16 h-16 sm:w-20 sm:h-20 mb-3
-                  rounded-full border border-border/50
-                  text-2xl font-light
-                  text-muted-foreground
-                  transition-all duration-300
-                  group-hover:text-foreground
-                  group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.25)]
-                  dark:group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.12)]
-                "
-              >
-                +
-              </div>
+                <div
+                  className="
+                    flex items-center justify-center
+                    w-16 h-16 sm:w-20 sm:h-20 mb-3
+                    rounded-full border border-border/50
+                    text-2xl
+                    text-muted-foreground
+                    transition-all duration-300
+                    group-hover:text-foreground
+                    group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.25)]
+                    dark:group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.12)]
+                  "
+                >
+                  <FiPlus className="w-6 h-6 transition-transform duration-300 group-hover:rotate-90" />
+                </div>
 
               <h3
                 className="
@@ -189,9 +190,7 @@ export default async function HomePage() {
         aria-label="Donate to RevEngiBot"
         style={{ boxShadow: '0 4px 24px 0 rgba(236, 72, 153, 0.25)' }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white drop-shadow">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.25 9.75c3 3.5 4.75 4.5 4.75 4.5s1.75-1 4.75-4.5 1-7-1.5-7-3.25 3-3.25 3-.75-3-3.25-3-4.5 3.5-1.5 7z" />
-        </svg>
+          <BiDonateHeart className="w-6 h-6 text-white drop-shadow" />
         <span className="font-semibold text-base tracking-wide group-hover:scale-105 transition-transform">Donate</span>
       </a>
     </main>

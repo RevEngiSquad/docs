@@ -6,6 +6,7 @@ import Marquee from "@/components/ui/marquee";
 import reviews from "@/app/(home)/reviews";
 import type { Metadata } from "next";
 import sponsors from '../sponsors.json';
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "RevEngi",
@@ -25,7 +26,7 @@ interface Sponsor {
 
 export default async function HomePage() {
   return (
-    <main className="flex h-screen flex-col text-center px-4 sm:px-6">
+    <main className="flex min-h-screen flex-col text-center px-4 sm:px-6">
       <div className="text-center">
         <h1 className="text-3xl sm:text-4xl font-bold mb-6">
           <span className="text-blue-400">RevEngi</span>
@@ -100,19 +101,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <footer className="mt-16">
-        <div className="flex justify-center gap-4 mb-4">
-          <Link href="/contact" className="text-gray-400 hover:text-gray-300">Contact Us</Link>
-          <Link href="/docs" className="text-gray-400 hover:text-gray-300">Docs</Link>
-          <Link href="/downloads" className="text-gray-400 hover:text-gray-300">Downloads</Link>
-          <Link href="/privacy" className="text-gray-400 hover:text-gray-300">Privacy Policy</Link>
-          <Link href="/terms" className="text-gray-400 hover:text-gray-300">Terms of Service</Link>
-          <Link href="https://status.revengi.in" className="text-gray-400 hover:text-gray-300">Status</Link>
-        </div>
-        <p className="text-gray-400">
-          &copy; {new Date().getFullYear()} RevEngi. All Rights Reserved.
-        </p>
-      </footer>
+      <Footer />
 
       <a
         href="/donate"

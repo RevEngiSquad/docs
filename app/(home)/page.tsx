@@ -71,7 +71,14 @@ export default async function HomePage() {
           Our <span className="text-blue-400">Sponsors</span>
         </h2>
         <div className="relative max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+            <div className="
+              grid
+              grid-cols-2
+              sm:grid-cols-3
+              md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]
+              gap-4 sm:gap-6
+              justify-center
+            ">
             {sponsors.map((sponsor: Sponsor, index: number) => (
               <div
                 key={`${sponsor.name}-${index}`}

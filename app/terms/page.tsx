@@ -8,7 +8,7 @@ export default function TermsOfServicePage() {
             <div className="mb-8">
                 <h1 className="text-4xl font-bold mb-4">Terms of Service</h1>
                 <p className="text-gray-600 dark:text-gray-400">
-                    Last Updated: January 10, 2026
+                    Last Updated: February 19, 2026
                 </p>
             </div>
 
@@ -145,8 +145,9 @@ export default function TermsOfServicePage() {
 
                 <section className="mb-8">
                     <h2 className="text-2xl font-semibold mb-4">Indemnification</h2>
+                    {/* The repeated line for "RevEngi Entities" has been removed from here */}
                     <p className="mb-4 text-gray-700 dark:text-gray-300">
-                        For the purposes of these Terms, <strong>"RevEngi Entities"</strong> includes RevEngi and its owners, developers, contributors, and agents.
+                        You agree to indemnify and hold harmless the RevEngi Entities from and against any claims, liabilities, damages, losses, and expenses, including, without limitation, reasonable legal and accounting fees, arising out of or in any way connected with:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
                         <li>Your use or misuse of the Services.</li>

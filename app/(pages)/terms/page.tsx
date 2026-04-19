@@ -12,23 +12,23 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
-      <h2 className="mb-5 flex items-center gap-2 text-2xl font-semibold text-white">
+    <section className="rounded-xl border border-border bg-muted/50 p-6 sm:p-8">
+      <h2 className="mb-5 flex items-center gap-2 text-2xl font-semibold text-foreground">
         {icon}
         {title}
       </h2>
-      <div className="space-y-4 text-sm leading-7 text-white/60 sm:text-base">{children}</div>
+      <div className="space-y-4 text-sm leading-7 text-muted-foreground sm:text-base">{children}</div>
     </section>
   );
 }
 
 function LegalList({ children }: { children: React.ReactNode }) {
-  return <ul className="list-disc space-y-2 pl-5 text-white/60">{children}</ul>;
+  return <ul className="list-disc space-y-2 pl-5 text-muted-foreground">{children}</ul>;
 }
 
 function InlineLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="text-white underline decoration-white/20 underline-offset-4 hover:decoration-white/60">
+    <Link href={href} className="text-foreground underline decoration-border underline-offset-4 hover:decoration-muted-foreground">
       {children}
     </Link>
   );
@@ -36,15 +36,15 @@ function InlineLink({ href, children }: { href: string; children: React.ReactNod
 
 export default function TermsOfServicePage() {
   return (
-    <main className="min-h-screen bg-[#050505] px-4 pt-28 pb-16 text-white sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-background px-4 pt-28 pb-16 text-foreground sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 max-w-3xl">
-          <div className="mb-5 inline-flex rounded-md border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-white/70">
+          <div className="mb-5 inline-flex rounded-md border border-border bg-muted/50 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
             Legal
           </div>
           <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">Terms of Service</h1>
-          <p className="mt-4 text-sm text-white/45">Last Updated: February 19, 2026</p>
-          <p className="mt-5 max-w-3xl text-base leading-7 text-white/60 sm:text-lg">
+          <p className="mt-4 text-sm text-muted-foreground/80">Last Updated: February 19, 2026</p>
+          <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
             These terms govern use of RevEngi, including the Telegram bot, API services, and related tooling.
           </p>
         </div>
@@ -52,11 +52,11 @@ export default function TermsOfServicePage() {
         <div className="space-y-6">
           <Section title="Introduction" icon={<InfoCircledIcon className="h-5 w-5" />}>
             <p>
-              Welcome to <strong className="text-white">RevEngi</strong>. By accessing or using our Telegram bot (
-              <InlineLink href="https://t.me/RevEngiBot">@RevEngiBot</InlineLink>), API services, and related services (collectively, <strong className="text-white">“Services”</strong>), you agree to be bound by these Terms of Service. If you do not agree to these Terms, you must <strong className="text-white">immediately cease all use</strong> of the Services.
+              Welcome to <strong className="text-foreground">RevEngi</strong>. By accessing or using our Telegram bot (
+              <InlineLink href="https://t.me/RevEngiBot">@RevEngiBot</InlineLink>), API services, and related services (collectively, <strong className="text-foreground">“Services”</strong>), you agree to be bound by these Terms of Service. If you do not agree to these Terms, you must <strong className="text-foreground">immediately cease all use</strong> of the Services.
             </p>
             <p>
-              For the purposes of these Terms, <strong className="text-white">“RevEngi Entities”</strong> includes RevEngi and its owners, developers, contributors, and agents.
+              For the purposes of these Terms, <strong className="text-foreground">“RevEngi Entities”</strong> includes RevEngi and its owners, developers, contributors, and agents.
             </p>
             <p>
               RevEngi provides automated reverse engineering tools, security analysis, and AI-assisted binary exploration. Our tools are intended for legitimate security research, application debugging, and educational purposes only.
@@ -77,7 +77,7 @@ export default function TermsOfServicePage() {
               <li>Maintaining the confidentiality of your account credentials.</li>
               <li>All activities that occur under your account.</li>
             </LegalList>
-            <p>You agree <strong className="text-white">not</strong> to use our Services to:</p>
+            <p>You agree <strong className="text-foreground">not</strong> to use our Services to:</p>
             <LegalList>
               <li>Analyze applications without proper authorization from the rights holder.</li>
               <li>Engage in any activity that violates intellectual property rights.</li>
@@ -91,7 +91,7 @@ export default function TermsOfServicePage() {
           </Section>
 
           <Section title="File Ownership and Copyright Disclaimer">
-            <p className="font-semibold text-white">Important Legal Notice</p>
+            <p className="font-semibold text-foreground">Important Legal Notice</p>
             <p>
               We do not accept any responsibility for the ownership, legality, or copyright status of files uploaded to our Services. Users are solely responsible for ensuring they have the legal right to upload, analyze, and process any files.
             </p>
@@ -99,36 +99,36 @@ export default function TermsOfServicePage() {
               Security researchers, developers, and analysts may upload applications they are authorized to analyze. We are not liable for any claims, damages, or legal actions arising from users uploading copyrighted, proprietary, or unauthorized material.
             </p>
             <p>
-              If you are a copyright holder and believe your work has been uploaded without authorization, please contact us at <a href="mailto:legal@revengi.in" className="text-white underline decoration-white/20 underline-offset-4 hover:decoration-white/60">legal@revengi.in</a> with appropriate documentation.
+              If you are a copyright holder and believe your work has been uploaded without authorization, please contact us at <a href="mailto:legal@revengi.in" className="text-foreground underline decoration-border underline-offset-4 hover:decoration-muted-foreground">legal@revengi.in</a> with appropriate documentation.
             </p>
           </Section>
 
           <Section title="Limitation of Liability">
-            <div className="rounded-md border border-white/10 bg-black/30 px-4 py-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">Important Liability Disclaimer</p>
+            <div className="rounded-md border border-border bg-muted/30 px-4 py-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/75">Important Liability Disclaimer</p>
             </div>
-            <p className="text-xs uppercase leading-relaxed tracking-[0.08em] text-white/55 sm:text-sm">
+            <p className="text-xs uppercase leading-relaxed tracking-[0.08em] text-muted-foreground sm:text-sm">
               To the maximum extent permitted by applicable law, in no event shall the RevEngi Entities be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:
             </p>
             <LegalList>
-              <li><strong className="text-white">Economic Loss:</strong> Any loss of profits, revenue, data, or business opportunities.</li>
-              <li><strong className="text-white">Security Breaches:</strong> Unauthorized access to or use of our Services.</li>
-              <li><strong className="text-white">Tool Misuse:</strong> Damages resulting from the misuse of our tools for hacking, exploitation, or other malicious purposes.</li>
-              <li><strong className="text-white">Unauthorized Analysis:</strong> Claims arising from the analysis of applications you were not authorized to process.</li>
-              <li><strong className="text-white">Third-Party Claims:</strong> Any legal actions or damages brought against us by third parties related to your use of the Services.</li>
+              <li><strong className="text-foreground">Economic Loss:</strong> Any loss of profits, revenue, data, or business opportunities.</li>
+              <li><strong className="text-foreground">Security Breaches:</strong> Unauthorized access to or use of our Services.</li>
+              <li><strong className="text-foreground">Tool Misuse:</strong> Damages resulting from the misuse of our tools for hacking, exploitation, or other malicious purposes.</li>
+              <li><strong className="text-foreground">Unauthorized Analysis:</strong> Claims arising from the analysis of applications you were not authorized to process.</li>
+              <li><strong className="text-foreground">Third-Party Claims:</strong> Any legal actions or damages brought against us by third parties related to your use of the Services.</li>
             </LegalList>
-            <div className="rounded-md border border-white/10 bg-white/[0.03] px-4 py-3">
-              <p className="text-sm text-white/70">
-                <span className="font-semibold text-white">Liability Cap:</span> RevEngi’s total aggregate liability for any claim shall not exceed the total amount actually paid by you to RevEngi for use of the Services in the last 3 months. If you have not paid any fees, RevEngi shall have no monetary liability.
+            <div className="rounded-md border border-border bg-muted/50 px-4 py-3">
+              <p className="text-sm text-foreground/70">
+                <span className="font-semibold text-foreground">Liability Cap:</span> RevEngi’s total aggregate liability for any claim shall not exceed the total amount actually paid by you to RevEngi for use of the Services in the last 3 months. If you have not paid any fees, RevEngi shall have no monetary liability.
               </p>
             </div>
-            <p className="italic text-white/45">
+            <p className="italic text-muted-foreground/80">
               We expressly disclaim any liability for illegal activities conducted by users, including unauthorized system access, intellectual property theft, or the development of malicious software.
             </p>
           </Section>
 
           <Section title="Disclaimer of Warranties">
-            <p className="font-semibold text-white">
+            <p className="font-semibold text-foreground">
               The Services are provided “as is” and “as available” without warranties of any kind, express or implied, including but not limited to:
             </p>
             <LegalList>
@@ -176,7 +176,7 @@ export default function TermsOfServicePage() {
               The Services, including all original content, features, and functionality, are the exclusive property of RevEngi and its licensors. These Services are protected by copyright, trademark, and other laws.
             </p>
             <p>
-              <strong className="text-white">Open Source Components:</strong> Certain components of our software are released under open-source licenses. Your use of those specific components is governed by the terms of their respective licenses. Nothing in these Terms limits your rights under those open-source licenses.
+              <strong className="text-foreground">Open Source Components:</strong> Certain components of our software are released under open-source licenses. Your use of those specific components is governed by the terms of their respective licenses. Nothing in these Terms limits your rights under those open-source licenses.
             </p>
             <p>
               You retain ownership of any content you upload to the Services. However, by uploading content, you grant us a limited, non-exclusive license to process and analyze such content solely for the purpose of providing the Services.
@@ -195,7 +195,7 @@ export default function TermsOfServicePage() {
 
           <Section title="Governing Law and Dispute Resolution">
             <p>
-              These Terms shall be governed by and construed in accordance with the <strong className="text-white">laws of India</strong>, without regard to conflict of law provisions. In the event of a dispute, the parties shall first attempt to resolve the matter through <strong className="text-white">mutual discussions for a period of 30 days</strong> before initiating arbitration. Any disputes arising out of or in connection with these Terms shall be resolved through binding arbitration in accordance with the <strong className="text-white">Arbitration and Conciliation Act, 1996</strong>. The seat and venue of arbitration shall be <strong className="text-white">New Delhi, India</strong>. The language of arbitration shall be English.
+              These Terms shall be governed by and construed in accordance with the <strong className="text-foreground">laws of India</strong>, without regard to conflict of law provisions. In the event of a dispute, the parties shall first attempt to resolve the matter through <strong className="text-foreground">mutual discussions for a period of 30 days</strong> before initiating arbitration. Any disputes arising out of or in connection with these Terms shall be resolved through binding arbitration in accordance with the <strong className="text-foreground">Arbitration and Conciliation Act, 1996</strong>. The seat and venue of arbitration shall be <strong className="text-foreground">New Delhi, India</strong>. The language of arbitration shall be English.
             </p>
           </Section>
 
@@ -205,10 +205,10 @@ export default function TermsOfServicePage() {
 
           <Section title="Contact Information">
             <p>If you have any questions about these Terms, please contact us at:</p>
-            <div className="rounded-md border border-white/10 bg-black/30 px-4 py-3">
-              <p className="text-white/70">
-                <strong className="text-white">Email:</strong>{' '}
-                <a href="mailto:legal@revengi.in" className="text-white underline decoration-white/20 underline-offset-4 hover:decoration-white/60">
+            <div className="rounded-md border border-border bg-muted/30 px-4 py-3">
+              <p className="text-muted-foreground">
+                <strong className="text-foreground">Email:</strong>{' '}
+                <a href="mailto:legal@revengi.in" className="text-foreground underline decoration-border underline-offset-4 hover:decoration-muted-foreground">
                   legal@revengi.in
                 </a>
               </p>

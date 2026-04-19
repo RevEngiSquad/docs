@@ -77,7 +77,7 @@
 
 @layer components {
   #nd-nav {
-    @apply fixed inset-x-0 top-4 z-40 mx-auto h-14 w-[calc(100%-1.5rem)] max-w-6xl rounded-xl border border-white/10 bg-black/70 shadow-[0_12px_40px_rgba(0,0,0,0.28)] backdrop-blur-md transition-[top,opacity] duration-300 ease-out;
+    @apply fixed inset-x-0 top-4 z-40 mx-auto h-14 w-[calc(100%-1.5rem)] max-w-6xl rounded-xl border border-border bg-background/70 shadow-lg backdrop-blur-md transition-[top,opacity] duration-300 ease-out;
   }
 
   #nd-nav[data-nav-state='hidden'] {

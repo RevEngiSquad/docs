@@ -1,104 +1,78 @@
 ---
 title: Overview
-description: Overview of RevEngiBot and its features.
+description: The ultimate toolkit for reverse engineers and developers.
 ---
 
-# Welcome to RevEngiBot Docs
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { FiZap, FiCode, FiShield, FiTerminal, FiSearch, FiCpu } from "react-icons/fi";
 
-RevEngiBot is a powerful Telegram bot tailored for reverse engineers and developers. It combines an array of essential tools designed to streamline workflows and simplify complex tasks such as Smali conversion, APK analysis, Java/Smali decompilation, ARM conversion, and much more.
+# Welcome to RevEngi
 
-## Getting Started
+RevEngi is a high-performance suite of tools tailored for reverse engineers. From Flutter analysis to Smali conversion, we provide everything you need in one unified interface.
 
-To start using RevEngiBot, visit [RevEngiBot on Telegram](https://t.me/RevEngiBot) and explore a suite of tools that can significantly enhance your reverse engineering projects.
+<Cards className="grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+  <Card
+    icon={<FiZap className="text-white/75" />}
+    title="Blutter Analysis"
+    href="/docs/commands/#blutter"
+    description="Industry-leading Flutter APK and .so file analysis. Extract information from Dart AOT payloads with precision."
+  />
+  <Card
+    icon={<FiCode className="text-white/75" />}
+    title="Smali Toolkit"
+    href="/docs/commands/#smali"
+    description="Grammar queries, Java-Smali conversion, and more."
+  />
+  <Card
+    icon={<FiTerminal className="text-white/75" />}
+    title="REST API"
+    href="/docs/api"
+    description="Programmatic access to all RevEngi features."
+  />
+  <Card
+    icon={<FiShield className="text-white/75" />}
+    title="APK Security"
+    href="/docs/commands/#scan"
+    description="Deep security scans, protection detection, and vulnerability analysis for Android applications."
+  />
+  <Card
+    icon={<FiCpu className="text-white/75" />}
+    title="Native Analysis"
+    href="/docs/commands/#jni_info"
+    description="Analyze native JNI methods, signatures, and library exports with high efficiency."
+  />
+  <Card
+    icon={<FiSearch className="text-white/75" />}
+    title="Binary Search"
+    href="/docs/commands/#regex"
+    description="Search opcode patterns, inspect structures, and move faster through low-level reverse engineering workflows."
+  />
+</Cards>
 
-## Commands Overview
+## Core Capabilities
 
-Below is a complete list of commands you can use in the bot to interact with its various features:
+RevEngi combines multiple specialized tools into a single workflow. Whether you're analyzing a binary or converting assembly, our bot handles the heavy lifting.
 
-<Callout type="info">**TIP:** Click on any command to see its detailed usage.</Callout>
+### Why RevEngi?
 
-| Command                                            | Description                                                                                     |
-| -------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [`/start`](./docs/commands/#start)                 | View the bot's start page.                                                                      |
-| [`/help`](./docs/commands/#help)                   | Access the help section.                                                                        |
-| [`/aab2apk`](./docs/commands/#aab-to-apk)          | Convert Android App Bundles (AAB) to APK.                                                       |
-| [`/apk`](./docs/commands/#apk)                     | Analyze APK files, decompile components, extract resources, and more.                           |
-| [`/apkid` ](./docs/commands/#apkid)                | Identify compilers, packers, obfuscators, and tools used in an APK.                             |
-| [`/apkprotect`](./docs/commands/#apkprotect)       | Protect APK files against unauthorized modification.                                            |
-| [`/apksign`](./docs/commands/#apksign)             | Sign APK files with multiple signing schemes (v1, v2, v3).                                      |
-| [`/askai`](./docs/commands/#askai)                 | Use AI to ask technical questions.                                                              |
-| [`/asm`](./docs/commands/#asm)                     | Convert assembly language to hexadecimal.                                                       |
-| [`/disasm`](./docs/commands/#disasm)               | Convert hexadecimal back to assembly.                                                           |
-| [`/base`](./docs/commands/#base)                   | Convert numbers between different bases (binary, hexadecimal, decimal, etc.).                   |
-| [`/blutter`](./docs/commands/#blutter)             | Analyze Flutter APKs and `.so` files using Blutter integration.                                 |
-| [`/credits`](./docs/commands/#credits)             | See third-party libraries used in the bot.                                                      |
-| [`/cff`](./docs/commands/#cff)                     | Obfuscation(control flow flattening) dex.                                                       |
-| [`/cocos2d`](./docs/commands/#cocos2d)             | Decrypt cocos2d encrypted js files.                                                             |
-| [`/dex2c`](./docs/commands/#dex2c)                 | Translate dalvikvm code into native code.                                                       |
-| [`/dex2java`](./docs/commands/#dex2java)           | Convert Dex files to Java source code. (Supports Multiple Deompiler options like jadx,cfr etc.) |
-| [`/dex2jar`](./docs/commands/#dex2jar)             | Convert Dex files to JAR format.                                                                |
-| [`/dexrepair`](./docs/commands/#dex-repair)        | Repair and optimize Dex files.                                                                  |
-| `/flutter_sub`                                     | Subscribe to Flutter release notifications.                                                      |
-| [`/frida_compile`](./docs/commands/#frida_compile) | Compile & Obfuscate JavaScript Frida scripts to Frida-compatible bytecode format.               |
-| [`/hash`](./docs/commands/#hash)                   | Generate hash values from text or files (supports multiple algorithms).                         |
-| [`/java2smali`](./docs/commands/#java2smali)       | Convert Java files to Smali code.                                                               |
-| [`/jni_info`](./docs/commands/#jni_info)           | Find JNI function signatures in APK.                                                            |
-| [`/mthook`](./docs/commands/#mthook)               | Generate MT Enhanced Hook.                                                                      |
-| [`/pairip`](./docs/commands/#pairip)               | Patch PairIP in Split APKs.                                                                     |
-| `/premium`                                         | Learn about RevEngiBot Premium and support development.                                         |
-| [`/regex`](./docs/commands/#regex)                 | Convert Smali instructions to regular expressions.                                              |
-| [`/s2f`](./docs/commands/#s2f)                     | Generate Frida hooks directly from .smali files, speeding up setup for dynamic analysis.        |
-| [`/scan`](./docs/commands/#scan)                   | Perform APK security scans using integrated tools.                                              |
-| [`/smali`](./docs/commands/#smali)                 | Query detailed Smali grammar and opcodes.                                                       |
-| [`/smali2java`](./docs/commands/#java2smali)       | Convert Smali code to Java.                                                                     |
-| [`ssl_patch`](./docs/commands/#ssl_patch)          | Patch SSL pinning in APKs.                                                                      |
-| [`/toapk`](./docs/commands/#toapk)                 | Convert XAPK, APKM, or APKS files to APK.                                                       |
-| [`/xml`](./docs/commands/#xml)                     | XML-related tools for decompiling, parsing, and editing.                                        |
-
-## Full Feature List
-
-RevEngiBot offers a variety of features, with some still in development or being refined. Here’s a quick breakdown of the current status of each feature:
-
-| Feature                   | Status                 |
-| ------------------------- | ---------------------- |
-| **Base Converter**        | All test passed ✅      |
-| **Smali Grammar**         | All test passed ✅      |
-| **Smali to Java**         | All test passed ✅      |
-| **Smali to Frida**        | All test passed ✅      |
-| **Dex to Java**           | All test passed ✅      |
-| **Dex to Jar**            | All test passed ✅      |
-| **Dex to C**              | All test passed ✅      |
-| **Dex Repair**            | All test passed ✅      |
-| **Dex Obfuscation**       | All test passed ✅      |
-| **JADX/CFR/Fern/Vine**    | All test passed ✅      |
-| **Java to Smali**         | All test passed ✅      |
-| **ARM Converter**         | All test passed ✅      |
-| **APK Protector**         | All test passed ✅      |
-| **Dex Obf.(CFF)**         | All test passed ✅      |
-| **APKiD**                 | All test passed ✅      |
-| **XML Decompiler**        | All test passed ✅      |
-| **APK Analyzer**          | All test passed ✅      |
-| **APK Source Decompiler** | All test passed ✅      |
-| **AAB to APK Converter**  | All test passed ✅      |
-| **Resources Decompiler**  | All test passed ✅      |
-| **Coding AI Assistant**   | All test passed ✅      |
-| **Blutter Integration**   | All test passed ✅      |
-| **Frida Compile**         | All test passed ✅      |
-| **APK Signer**            | All test passed ✅      |
-| **Regex Maker**           | All test passed ✅      |
-| **Generate MT Hook**      | All test passed ✅      |
-| **Cocos2d (jsc) Decrypt** | All test passed ✅      |
-| **JNI Info Extractor**    | All test passed ✅      |
-| **Smart Regex Converter** | All test passed ✅      |
-| **SSL Patch**             | All test passed ✅      |
-| **PairIP Patch**          | All test passed ✅      |
-| **More features**         | Currently researched 🔍 |
+- **Speed:** Most operations complete in under 10 seconds.
+- **Versatility:** Supports APK, AAB, JAR, DEX, and Native SO files.
+- **Accessibility:** Use it via Telegram, Web App, or REST API.
 
 ---
 
-For more updates and detailed changelogs, join our Telegram community:
+## Quick Navigation
 
-- Channel: [@RevEngi](https://t.me/RevEngi)
-- Support: [@RevEngiSquad](https://t.me/RevEngiSquad)
+<Cards>
+  <Card title="Commands Reference" href="/docs/commands" description="Full list of available bot commands." />
+  <Card title="API Documentation" href="/docs/api" description="Technical guide for developers." />
+</Cards>
+
+## Community & Support
+
+Join our growing community of researchers and developers:
+
+- **Channel:** [@RevEngi](https://t.me/RevEngi)
+- **Support:** [@RevEngiSquad](https://t.me/RevEngiSquad)
 
 Happy Reversing!

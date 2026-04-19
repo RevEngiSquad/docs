@@ -1,184 +1,256 @@
+"use client";
+
 import Link from "next/link";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Button } from "@/components/ui/button";
-import { ny } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 import reviews from "@/app/(home)/reviews";
-import type { Metadata } from "next";
 import sponsors from '../sponsors.json';
 import { Footer } from "@/components/footer";
-import { FiPlus } from "react-icons/fi";
+import { FiPlus, FiArrowRight, FiZap, FiCode, FiShield, FiTerminal } from "react-icons/fi";
 import { BiDonateHeart } from "react-icons/bi";
-
-export const metadata: Metadata = {
-  title: "RevEngi",
-  description: "A Telegram bot for reverse engineers and developers.",
-  icons: {
-    icon: "/icon.jpg",
-  },
-};
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+import { motion } from "framer-motion";
 
 interface Sponsor {
   name: string;
   icon: string;
 }
 
-export default async function HomePage() {
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col text-center px-4 sm:px-6">
-      <div className="text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6">
-          <span className="text-blue-400">RevEngi</span>
-          <span className="text-2xl sm:text-3xl font-bold mb-6"> [BOT]</span>
-        </h1>
-        <p className="text-base sm:text-lg max-w-2xl mx-auto mb-8">
-          Revolutionizing the workflow for reverse engineers and developers.
-          Explore powerful tools like Blutter, Smali Grammar, Java-Smali
-          converters, Regex Maker, APK Info, and more. All at your fingertips
-          through our easy-to-use Telegram bot or REST API.
-        </p>
-        <div
-          className="
-            max-w-2xl mx-auto mb-10
-            rounded-xl border border-border/40
-            bg-background/60 backdrop-blur
-            p-5 text-left
-            transition-all
-            hover:bg-accent/30 hover:scale-105 hover:shadow-lg
-          "
+    <main className="relative flex min-h-screen flex-col overflow-x-hidden bg-[#050505] text-white selection:bg-white/20">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 flex flex-col items-center px-4 pt-24 pb-16 sm:px-6 lg:pt-32"
+      >
+        <motion.div variants={itemVariants} className="mb-6">
+          <span className="rounded-md border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-white/70 backdrop-blur-md">
+            Reverse Engineering Toolkit
+          </span>
+        </motion.div>
+
+        <motion.h1
+          variants={itemVariants}
+          className="max-w-5xl text-center text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl"
         >
-          <h2 className="font-mono text-sm font-semibold text-foreground flex items-center gap-2">
-            <span className="text-blue-500">//</span> REST API
-          </h2>
+          <span className="text-white">
+            RevEngi
+          </span>{" "}
+          <span className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-4 py-1 align-middle text-3xl font-black tracking-tighter sm:text-5xl lg:text-6xl">
+            BOT
+          </span>
+        </motion.h1>
 
-          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-            Programmatic access to RevEngi tools including Flutter analysis,
-            JNI inspection, and more — ready to integrate into your own workflows.
-          </p>
+        <motion.p
+          variants={itemVariants}
+          className="mt-8 max-w-2xl text-center text-lg leading-relaxed text-gray-400 sm:text-xl"
+        >
+          Revolutionizing the workflow for reverse engineers and developers.
+          Powerful tools for Blutter, Smali, Java conversion, and APK analysis—all
+          at your fingertips.
+        </motion.p>
 
-          <div className="mt-3">
-            <Button asChild variant="link" className="px-0">
-              <Link href="/docs/api">
-                View API Documentation →
-              </Link>
+        <motion.div variants={itemVariants} className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
+          <Button
+            asChild
+            className="h-14 rounded-md border border-white/10 bg-white px-8 text-lg font-semibold text-black hover:bg-white/90"
+          >
+            <Link href="https://t.me/RevEngiBot">Launch on Telegram</Link>
+          </Button>
+          <div className="flex gap-4">
+            <Button
+              asChild
+              variant="outline"
+              className="h-14 rounded-md border-white/10 bg-white/5 px-8 text-white hover:bg-white/10"
+            >
+              <Link href="https://app.revengi.in">Web App</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="h-14 rounded-md border-white/10 bg-white/5 px-8 text-white hover:bg-white/10"
+            >
+              <Link href="/downloads">Download</Link>
             </Button>
           </div>
-        </div>
-      </div>
-      <Link
-        href="https://t.me/RevEngiBot"
-        className="flex justify-center items-center gap-2 w-fit mx-auto mb-10"
-      >
-        <RainbowButton>Try the Bot</RainbowButton>
-      </Link>
-      <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-        <Btns text="Open Web App" href="https://app.revengi.in" />
-        <Btns text="Download Apps" href="/downloads" />
-      </div>
-      <div className="md:hidden">
-        <MarqueeDemoVertical />
-      </div>
-      <div className="hidden md:block">
-        <MarqueeDemo />
-      </div>
+        </motion.div>
 
-      <section className="py-12">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-8">
-          Our <span className="text-blue-400">Sponsors</span>
-        </h2>
-        <div className="relative max-w-5xl mx-auto">
-            <div className="
-              grid
-              grid-cols-2
-              sm:grid-cols-3
-              md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]
-              gap-4 sm:gap-6
-              justify-center
-            ">
-            {sponsors.map((sponsor: Sponsor, index: number) => (
-                <div
-                  key={`${sponsor.name}-${index}`}
-                  className={ny(
-                    "group relative flex flex-col items-center p-4 rounded-xl",
-                    "border border-border/40",
-                    "bg-background/60 backdrop-blur",
-                    "transition-all duration-300",
-                    "hover:bg-accent/30 hover:scale-105 hover:shadow-lg"
-                  )}
-                >
-                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 mb-3">
-                    <img
-                      src={sponsor.icon}
-                      alt={`${sponsor.name} logo`}
-                      className="
-                        w-full h-full object-contain rounded-full
-                        border border-border/50
-                        transition-all duration-300
-                        group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.25)]
-                        dark:group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.12)]
-                      "
-                    />
+        <div className="mt-32 grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-12 md:grid-rows-2">
+          <motion.div
+            variants={itemVariants}
+            className="group relative md:col-span-8 md:row-span-1"
+          >
+            <div className="absolute inset-0 rounded-xl border border-white/10 bg-white/5 transition-all duration-500 group-hover:bg-white/[0.08]" />
+            <div className="relative h-full overflow-hidden rounded-[calc(0.75rem-1px)] p-8">
+              <div className="flex h-full flex-col justify-between">
+                <div>
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md border border-white/10 bg-white/5 text-white/80">
+                    <FiZap size={24} />
                   </div>
-
-                  <h3
-                    className="
-                      text-sm sm:text-base font-semibold
-                      text-foreground/80
-                      transition-all duration-300
-                      group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.35)]
-                      dark:group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.2)]
-                    "
-                  >
-                    {sponsor.name}
-                  </h3>
+                  <h3 className="text-2xl font-bold">Blutter Analysis</h3>
+                  <p className="mt-2 max-w-md text-gray-400">
+                    Industry-leading Flutter APK and .so file analysis. Extract information from Dart AOT payloads with precision.
+                  </p>
                 </div>
-            ))}
+                <div className="mt-8">
+                  <Button asChild variant="link" className="px-0 text-white">
+                    <Link href="/docs/commands/#blutter" className="flex items-center gap-2">
+                      Learn more <FiArrowRight className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
+          <motion.div
+            variants={itemVariants}
+            className="group relative md:col-span-4 md:row-span-1"
+          >
+            <div className="absolute inset-0 rounded-xl border border-white/10 bg-white/5 transition-all duration-500 group-hover:bg-white/[0.08]" />
+            <div className="relative h-full overflow-hidden rounded-[calc(0.75rem-1px)] p-8">
+              <div className="flex h-full flex-col">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md border border-white/10 bg-white/5 text-white/80">
+                  <FiTerminal size={24} />
+                </div>
+                <h3 className="text-2xl font-bold">REST API</h3>
+                <p className="mt-2 text-gray-400">
+                  Integrate RevEngi tools directly into your custom automated workflows.
+                </p>
+                <div className="mt-auto pt-6">
+                  <Button asChild variant="link" className="px-0 text-white">
+                    <Link href="/docs/api">View Docs →</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="group relative md:col-span-4 md:row-span-1"
+          >
+            <div className="absolute inset-0 rounded-xl border border-white/10 bg-white/5 transition-all duration-500 group-hover:bg-white/[0.08]" />
+            <div className="relative h-full overflow-hidden rounded-[calc(0.75rem-1px)] p-8">
+              <div className="flex h-full flex-col">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md border border-white/10 bg-white/5 text-white/80">
+                  <FiCode size={24} />
+                </div>
+                <h3 className="text-2xl font-bold">Code Conversion</h3>
+                <p className="mt-2 text-gray-400">
+                  Seamlessly convert between Smali, Java, and Assembly with intelligent grammar support.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="group relative md:col-span-8 md:row-span-1"
+          >
+            <div className="absolute inset-0 rounded-xl border border-white/10 bg-white/5 transition-all duration-500 group-hover:bg-white/[0.08]" />
+            <div className="relative h-full overflow-hidden rounded-[calc(0.75rem-1px)] p-8">
+              <div className="flex items-start justify-between">
+                <div className="max-w-md">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md border border-white/10 bg-white/5 text-white/80">
+                    <FiShield size={24} />
+                  </div>
+                  <h3 className="text-2xl font-bold">Security & Forensics</h3>
+                  <p className="mt-2 text-gray-400">
+                    Advanced APK scanning, protection detection, and JNI inspection tools for deep forensics analysis.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.section variants={itemVariants} className="mt-40 w-full overflow-hidden">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold sm:text-5xl">Community Voice</h2>
+            <p className="mt-4 text-gray-400">Trusted by thousands of researchers worldwide.</p>
+          </div>
+
+          <div className="relative">
+            <Marquee pauseOnHover className="[--duration:40s]">
+              {firstRow.map((review, i) => (
+                <ReviewCard key={`r1-${i}`} {...review} />
+              ))}
+            </Marquee>
+            <Marquee reverse pauseOnHover className="mt-6 [--duration:40s]">
+              {secondRow.map((review, i) => (
+                <ReviewCard key={`r2-${i}`} {...review} />
+              ))}
+            </Marquee>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#050505] to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#050505] to-transparent" />
+          </div>
+        </motion.section>
+
+        <motion.section variants={itemVariants} className="mt-40 w-full max-w-5xl">
+          <div className="mb-16 text-center">
+            <h2 className="text-3xl font-bold sm:text-5xl">Our Backers</h2>
+            <p className="mt-4 text-gray-400">Powering the future of open-source reverse engineering.</p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {sponsors.map((sponsor: Sponsor, index: number) => (
+              <div
+                key={`${sponsor.name}-${index}`}
+                className="group relative flex flex-col items-center justify-center rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:bg-white/[0.08]"
+              >
+                <div className="relative mb-4 h-16 w-16 overflow-hidden rounded-lg border border-white/10">
+                  <img
+                    src={sponsor.icon}
+                    alt={sponsor.name}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <span className="text-center text-sm font-medium text-gray-400 group-hover:text-white">
+                  {sponsor.name}
+                </span>
+              </div>
+            ))}
             <Link
               href="/donate"
-              className={ny(
-                "group relative flex flex-col items-center justify-center p-4 rounded-xl",
-                "border border-dashed border-border/50",
-                "bg-background/40 backdrop-blur",
-                "transition-all duration-300",
-                "hover:bg-accent/30 hover:scale-105 hover:shadow-lg"
-              )}
+              className="group relative flex flex-col items-center justify-center rounded-xl border border-dashed border-white/20 bg-white/5 p-6 transition-all duration-300 hover:border-white/40 hover:bg-white/[0.08]"
             >
-                <div
-                  className="
-                    flex items-center justify-center
-                    w-16 h-16 sm:w-20 sm:h-20 mb-3
-                    rounded-full border border-border/50
-                    text-2xl
-                    text-muted-foreground
-                    transition-all duration-300
-                    group-hover:text-foreground
-                    group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.25)]
-                    dark:group-hover:shadow-[0_10px_24px_rgba(255,255,255,0.12)]
-                  "
-                >
-                  <FiPlus className="w-6 h-6 transition-transform duration-300 group-hover:rotate-90" />
-                </div>
-
-              <h3
-                className="
-                  text-sm sm:text-base font-semibold
-                  text-muted-foreground
-                  transition-all duration-300
-                  group-hover:text-foreground
-                  group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.35)]
-                  dark:group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.2)]
-                "
-              >
-                Become a Sponsor
-              </h3>
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-transform duration-500 group-hover:rotate-90">
+                <FiPlus size={24} className="text-gray-400 group-hover:text-white" />
+              </div>
+              <span className="text-sm font-medium text-gray-400 group-hover:text-white">
+                Be a Sponsor
+              </span>
             </Link>
           </div>
-        </div>
-      </section>
+        </motion.section>
+      </motion.div>
 
       <Footer />
 
@@ -186,22 +258,12 @@ export default async function HomePage() {
         href="/donate"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed z-50 bottom-6 right-6 flex items-center gap-2 px-5 py-3 rounded-full bg-pink-500 text-white shadow-lg hover:bg-pink-600 transition-all animate-pulse ring-2 ring-pink-300 dark:ring-pink-800 group"
-        aria-label="Donate to RevEngiBot"
-        style={{ boxShadow: '0 4px 24px 0 rgba(236, 72, 153, 0.25)' }}
+        className="fixed right-6 bottom-6 z-50 flex items-center gap-2 rounded-md border border-white/10 bg-white/10 px-6 py-3 text-white shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur transition-all hover:scale-105 hover:bg-white/15 active:scale-95 sm:right-10 sm:bottom-10"
       >
-          <BiDonateHeart className="w-6 h-6 text-white drop-shadow" />
-        <span className="font-semibold text-base tracking-wide group-hover:scale-105 transition-transform">Donate</span>
+        <BiDonateHeart size={20} />
+        <span className="font-bold tracking-wide">Support Project</span>
       </a>
     </main>
-  );
-}
-
-function Btns({ text, href }: { text: string; href: string }) {
-  return (
-    <Button className="md:px-6" asChild variant="secondary">
-      <Link href={href}>{text}</Link>
-    </Button>
   );
 }
 
@@ -210,73 +272,26 @@ function ReviewCard({
   name,
   username,
   body,
-  vertical,
 }: {
   img: string;
   name: string;
   username: string;
   body: string;
-  vertical?: boolean;
 }) {
-  const className = ny(
-    `relative cursor-pointer overflow-hidden rounded-xl border p-4`,
-    // light styles
-    "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-    // dark styles
-    "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-    vertical ? "h-40 w-36" : "w-64"
-  );
-
   return (
-    <figure className={className}>
-      <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt={`${name} logo`} src={img} />
+    <figure className="relative w-80 cursor-default overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:bg-white/[0.08]">
+      <div className="flex flex-row items-center gap-3">
+        <img className="rounded-md border border-white/10" width="40" height="40" alt={name} src={img} />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
+          <figcaption className="text-sm font-bold text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          <p className="text-xs font-medium text-gray-500">{username}</p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <blockquote className="mt-4 text-sm leading-relaxed text-gray-300">
+        {body}
+      </blockquote>
     </figure>
-  );
-}
-
-function MarqueeDemoVertical() {
-  return (
-    <div className="bg-background relative flex h-96 flex-row items-center justify-center overflow-hidden rounded-lg border sm:px-20 md:shadow-xl">
-      <Marquee pauseOnHover vertical className="[--duration:20s]">
-        {firstRow.map((review, index) => (
-          <ReviewCard key={`${review.username}-${index}`} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
-        {secondRow.map((review, index) => (
-          <ReviewCard key={`${review.username}-${index}`} {...review} />
-        ))}
-      </Marquee>
-      <div className="dark:from-background pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white"></div>
-      <div className="dark:from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white"></div>
-    </div>
-  );
-}
-
-function MarqueeDemo() {
-  return (
-    <div className="bg-background relative flex size-full flex-col items-center justify-center overflow-hidden rounded-lg border py-20 md:shadow-xl">
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <div className="dark:from-background pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white"></div>
-      <div className="dark:from-background pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white"></div>
-    </div>
   );
 }

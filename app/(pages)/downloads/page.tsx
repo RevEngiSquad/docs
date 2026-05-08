@@ -46,27 +46,27 @@ const platforms = [
 
 export default function Downloads() {
   return (
-    <main className="bg-background px-4 pt-24 pb-12 text-foreground sm:px-6 lg:px-8">
-      <section className="mx-auto max-w-6xl">
-        <div className="mb-10 max-w-3xl">
-          <div className="mb-5 inline-flex rounded-md border border-border bg-muted/50 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+    <main className="bg-background px-4 pt-24 pb-16 text-foreground sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-5xl">
+        <div className="mb-12">
+          <span className="inline-block border border-border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
             Downloads
-          </div>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+          </span>
+          <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl">
             Install RevEngi on your platform.
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
             Choose the latest build for desktop or mobile. Each package links directly to the current release artifact.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2 xl:grid-cols-4">
           {platforms.map((item) => (
             <DownloadDropdown key={item.platform} {...item} />
           ))}
         </div>
 
-        <div className="mt-10 rounded-xl border border-border bg-muted/50 p-5 sm:p-6">
+        <div className="mt-12 border border-border bg-background p-5 sm:p-6">
           <LatestReleaseNotes />
         </div>
       </section>
@@ -93,30 +93,30 @@ function DownloadDropdown({
   };
 
   return (
-    <div className="rounded-xl border border-border bg-muted/50 p-6 transition-colors hover:bg-muted">
-      <div className="mb-5 flex items-center justify-between border-b border-border pb-5">
+    <div className="bg-background p-6 transition-color hover:bg-background/80">
+      <div className="mb-5 flex items-center justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground/60">Platform</p>
-          <h2 className="mt-2 text-2xl font-semibold text-foreground">{platform}</h2>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground/50">Platform</p>
+          <h2 className="mt-1.5 text-xl font-semibold text-foreground">{platform}</h2>
         </div>
-        <div className="flex h-11 w-11 items-center justify-center border border-border bg-muted text-foreground/75">
-          <Icon className="h-5 w-5" />
+        <div className="flex h-10 w-10 items-center justify-center border border-border text-foreground/60">
+          <Icon className="h-4 w-4" />
         </div>
       </div>
 
-      <p className="mb-6 text-sm leading-6 text-muted-foreground">
-        Download the latest {platform} package from the RevEngi release channel.
+      <p className="mb-5 text-sm leading-6 text-muted-foreground">
+        Latest {platform} build from the release channel.
       </p>
 
       <Menu as="div" className="relative block w-full text-left">
         <div className="flex w-full">
           <button
             onClick={() => handleDownload(selected)}
-            className="flex-1 rounded-l-md border border-border bg-foreground px-4 py-3 text-left text-sm font-medium text-background transition hover:bg-foreground/90"
+            className="flex-1 bg-foreground px-4 py-2.5 text-left text-sm font-medium text-background transition hover:bg-foreground/90"
           >
             {selected.label}
           </button>
-          <MenuButton className="rounded-r-md border border-l-0 border-border bg-foreground px-3 text-background transition hover:bg-foreground/90">
+          <MenuButton className="bg-foreground px-3 text-background transition hover:bg-foreground/90">
             <ChevronDownIcon className="h-4 w-4" />
           </MenuButton>
         </div>
@@ -130,13 +130,13 @@ function DownloadDropdown({
           leaveFrom="transform opacity-100 translate-y-0"
           leaveTo="transform opacity-0 -translate-y-1"
         >
-          <MenuItems className="absolute z-10 mt-2 w-full border border-border bg-popover p-1 shadow-2xl focus:outline-none">
+          <MenuItems className="absolute z-10 mt-1 w-full border border-border bg-popover p-0.5 shadow-lg focus:outline-none">
             {options.map((opt) => (
               <MenuItem key={opt.label}>
                 {({ focus }) => (
                   <button
                     onClick={() => handleDownload(opt)}
-                    className={`${focus ? "bg-accent text-foreground" : "text-muted-foreground"} block w-full px-4 py-3 text-left text-sm transition-colors`}
+                    className={`${focus ? "bg-accent text-foreground" : "text-muted-foreground"} block w-full px-4 py-2.5 text-left text-sm transition-colors`}
                   >
                     {opt.label}
                   </button>

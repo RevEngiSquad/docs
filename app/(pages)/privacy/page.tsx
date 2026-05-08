@@ -12,12 +12,12 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-xl border border-border bg-muted/50 p-6 sm:p-8">
-      <h2 className="mb-5 flex items-center gap-2 text-2xl font-semibold text-foreground">
+    <section className="p-6 sm:p-8">
+      <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-foreground">
         {icon}
         {title}
       </h2>
-      <div className="space-y-4 text-sm leading-7 text-muted-foreground sm:text-base">{children}</div>
+      <div className="space-y-3 text-sm leading-7 text-muted-foreground">{children}</div>
     </section>
   );
 }
@@ -36,20 +36,20 @@ function InlineLink({ href, children }: { href: string; children: React.ReactNod
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-background px-4 pt-24 pb-12 text-foreground sm:px-6 lg:px-8">
+    <main className="bg-background px-4 pt-24 pb-16 text-foreground sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-12 max-w-3xl">
-          <div className="mb-5 inline-flex rounded-md border border-border bg-muted/50 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+        <div className="mb-12">
+          <span className="inline-block border border-border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
             Legal
-          </div>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">Privacy Policy</h1>
-          <p className="mt-4 text-sm text-muted-foreground/80">Last Updated: February 09, 2026</p>
-          <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+          </span>
+          <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl">Privacy Policy</h1>
+          <p className="mt-4 font-mono text-xs text-muted-foreground/80">Last Updated: February 09, 2026</p>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
             This policy explains how RevEngi collects, uses, stores, and protects information across the bot, API, and related services.
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="divide-y divide-border border border-border bg-background">
           <Section title="Introduction" icon={<InfoCircledIcon className="h-5 w-5" />}>
             <p>
               Welcome to RevEngi. We are committed to protecting your privacy and being transparent about our data practices. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Telegram bot (<InlineLink href="https://t.me/RevEngiBot">@RevEngiBot</InlineLink>), API services, and related services (collectively, “Services”).
@@ -104,9 +104,9 @@ export default function PrivacyPolicyPage() {
           </Section>
 
           <Section title="Data Retention">
-            <div className="rounded-md border border-border bg-muted/30 px-4 py-3">
+            <div className="border border-border bg-muted/20 px-4 py-3">
               <p className="flex items-start gap-2 text-foreground/70">
-                <ShieldCheckIcon className="mt-1 h-5 w-5 flex-shrink-0 text-foreground" />
+                <ShieldCheckIcon className="mt-1 h-4 w-4 flex-shrink-0 text-foreground" />
                 <span>
                   <strong className="text-foreground">File Processing:</strong> Files uploaded for processing are temporarily stored on our servers and are automatically deleted after processing is complete or within 24 hours, whichever comes first.
                 </span>
@@ -192,7 +192,7 @@ export default function PrivacyPolicyPage() {
 
           <Section title="Contact Us">
             <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
-            <div className="rounded-md border border-border bg-muted/30 px-4 py-3">
+            <div className="border border-border bg-muted/20 px-4 py-3">
               <ul className="space-y-2 text-foreground/70">
                 <li>
                   <strong className="text-foreground">Email:</strong>{' '}
@@ -210,9 +210,10 @@ export default function PrivacyPolicyPage() {
             </div>
           </Section>
 
-          <div className="rounded-xl border border-border bg-muted/50 p-6 text-center text-sm leading-7 text-muted-foreground sm:p-8">
-            By using RevEngi Services, you acknowledge that you have read and understood this Privacy Policy and agree to its <InlineLink href="/terms">Terms of Service</InlineLink>.
-          </div>
+        </div>
+
+        <div className="mt-12 border border-border bg-background p-6 text-center text-sm leading-7 text-muted-foreground sm:p-8">
+          By using RevEngi Services, you acknowledge that you have read and understood this Privacy Policy and agree to its <InlineLink href="/terms">Terms of Service</InlineLink>.
         </div>
       </div>
     </main>

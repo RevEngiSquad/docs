@@ -10,9 +10,9 @@ export default function PaymentCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative w-full rounded-xl border border-border bg-muted/50 p-6 text-foreground transition-colors hover:bg-muted">
+    <div className="relative w-full border-b border-r border-border bg-background p-6 text-foreground transition-colors hover:bg-background/80">
       {badge && (
-        <span className="absolute top-4 right-4 rounded-md border border-border bg-muted px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+        <span className="absolute top-4 right-4 border border-border px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
           {badge}
         </span>
       )}

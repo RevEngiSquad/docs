@@ -28,7 +28,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-black text-white px-4 py-2 rounded-lg shadow-lg z-50"
+            className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 border border-border bg-foreground px-4 py-2 text-sm text-background shadow-lg"
           >
             {message}
           </motion.div>

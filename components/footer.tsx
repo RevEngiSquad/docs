@@ -1,147 +1,91 @@
 import Link from "next/link";
 import { LuGithub, LuLinkedin } from "react-icons/lu";
 import { LiaTelegramPlane } from "react-icons/lia";
-import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+
+const links = {
+  product: [
+    { label: "Desktop Apps", href: "/downloads" },
+    { label: "API Docs", href: "/docs/api" },
+    { label: "Web App", href: "https://app.revengi.in" },
+  ],
+  company: [
+    { label: "Contact", href: "/contact" },
+    { label: "Status", href: "https://status.revengi.in", external: true },
+    { label: "Donate", href: "/donate" },
+  ],
+  legal: [
+    { label: "Terms", href: "/terms" },
+    { label: "Privacy", href: "/privacy" },
+  ],
+};
+
+const socials = [
+  { icon: <LiaTelegramPlane size={16} />, href: "https://t.me/RevEngi", label: "Telegram" },
+  { icon: <LuGithub size={16} />, href: "https://github.com/RevEngiSquad", label: "GitHub" },
+  { icon: <LuLinkedin size={16} />, href: "https://linkedin.com/company/revengi", label: "LinkedIn" },
+];
+
+function FooterCol({ title, items }: { title: string; items: typeof links.product }) {
+  return (
+    <div>
+      <h3 className="text-xs font-medium uppercase tracking-[0.1em] text-foreground">{title}</h3>
+      <ul className="mt-4 space-y-2.5">
+        {items.map((item) => (
+          <li key={item.label}>
+            <Link
+              href={item.href}
+              {...("external" in item ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export function Footer() {
   return (
-    <footer className="relative z-10 w-full border-t border-border bg-background text-foreground">
-      <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8 md:py-16">
-        <div className="grid grid-cols-1 gap-10 justify-items-start text-left md:grid-cols-2 md:justify-items-stretch lg:grid-cols-5">
-          <div className="space-y-4 md:col-span-2 lg:col-span-1">
-            <div className="flex shrink-0 items-center gap-2.5">
-              <img
-                src="/icon.jpg"
-                alt="RevEngi Logo"
-                width="36"
-                height="36"
-                className="rounded-lg border border-border"
-              />
-              <span className="whitespace-nowrap font-mono text-xl font-bold tracking-tight text-foreground">
-                <span>RevEngi</span>
-                <span className="ml-[0.3em] text-muted-foreground">[BOT]</span>
+    <footer className="relative z-10 w-full border-t border-border bg-background">
+      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div className="shrink-0">
+            <div className="flex items-center gap-2">
+              <img src="/icon.jpg" alt="RevEngi Logo" width="22" height="22" className="border border-border" />
+              <span className="text-sm font-semibold tracking-tight">
+                RevEngi<span className="ml-1 text-muted-foreground">BOT</span>
               </span>
             </div>
-            <p className="font-mono text-sm leading-relaxed text-muted-foreground">
-              Revolutionizing reverse engineering workflow.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="font-mono text-sm font-semibold text-foreground">
-              <MdOutlineKeyboardDoubleArrowRight className="mr-1 inline text-muted-foreground/70" />Product
-            </h3>
-            <ul className="space-y-2.5 font-mono text-sm">
-              <li>
-                <Link className="group inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground" href="/downloads">
-                  <span className="text-muted-foreground/50 transition-colors group-hover:text-muted-foreground/70">//</span>Desktop Apps
-                </Link>
-              </li>
-              <li>
-                <Link className="group inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground" href="/docs/api">
-                  <span className="text-muted-foreground/50 transition-colors group-hover:text-muted-foreground/70">//</span>API Docs
-                </Link>
-              </li>
-              <li>
-                <Link className="group inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground" href="https://app.revengi.in">
-                  <span className="text-muted-foreground/50 transition-colors group-hover:text-muted-foreground/70">//</span>Web App
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="font-mono text-sm font-semibold text-foreground">
-              <MdOutlineKeyboardDoubleArrowRight className="mr-1 inline text-muted-foreground/70" />Company
-            </h3>
-            <ul className="space-y-2.5 font-mono text-sm">
-              <li>
-                <Link className="group inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground" href="/contact">
-                  <span className="text-muted-foreground/50 transition-colors group-hover:text-muted-foreground/70">//</span>Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="group inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
-                  href="https://status.revengi.in"
+            <div className="mt-3 flex items-center gap-1">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={s.label}
+                  className="flex h-7 w-7 items-center justify-center text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >
-                  <span className="text-muted-foreground/50 transition-colors group-hover:text-muted-foreground/70">//</span>Status
-                </Link>
-              </li>
-              <li>
-                <Link className="group inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground" href="/donate">
-                  <span className="text-muted-foreground/50 transition-colors group-hover:text-muted-foreground/70">//</span>Donate
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="font-mono text-sm font-semibold text-foreground">
-              <MdOutlineKeyboardDoubleArrowRight className="mr-1 inline text-muted-foreground/70" />Legal
-            </h3>
-            <ul className="space-y-2.5 font-mono text-sm">
-              <li>
-                <Link className="group inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground" href="/terms">
-                  <span className="text-muted-foreground/50 transition-colors group-hover:text-muted-foreground/70">//</span>Terms
-                </Link>
-              </li>
-              <li>
-                <Link className="group inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground" href="/privacy">
-                  <span className="text-muted-foreground/50 transition-colors group-hover:text-muted-foreground/70">//</span>Privacy
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-left font-mono text-sm font-semibold text-foreground md:text-center">
-              <MdOutlineKeyboardDoubleArrowRight className="mr-1 inline text-muted-foreground/70" />Connect
-            </h3>
-
-            <div className="flex items-center justify-start gap-4 md:justify-center">
-              <a
-                href="https://t.me/RevEngi"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Telegram"
-                className="group flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted/50 text-muted-foreground transition-all hover:border-foreground/20 hover:bg-muted hover:text-foreground"
-              >
-                <LiaTelegramPlane />
-              </a>
-
-              <a
-                href="https://github.com/RevEngiSquad"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="GitHub"
-                className="group flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted/50 text-muted-foreground transition-all hover:border-foreground/20 hover:bg-muted hover:text-foreground"
-              >
-                <LuGithub className="h-5 w-5" />
-              </a>
-
-              <a
-                href="https://linkedin.com/company/revengi"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="LinkedIn"
-                className="group flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted/50 text-muted-foreground transition-all hover:border-foreground/20 hover:bg-muted hover:text-foreground"
-              >
-                <LuLinkedin className="h-5 w-5" />
-              </a>
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
+
+          <div className="flex flex-wrap gap-x-14 gap-y-6">
+            <FooterCol title="Product" items={links.product} />
+            <FooterCol title="Company" items={links.company} />
+            <FooterCol title="Legal" items={links.legal} />
+          </div>
         </div>
+      </div>
 
-        <div className="my-8 h-px bg-border"></div>
-
-        <div className="flex flex-col items-center justify-between gap-4 font-mono text-sm text-muted-foreground md:flex-row">
-          <p className="text-xs">© {new Date().getFullYear()} RevEngi. All Rights Reserved.</p>
-          <p className="text-xs text-muted-foreground/70">
-            <span className="text-muted-foreground/50">// </span>Built for reverse engineers
-          </p>
+      <div className="border-t border-border">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 text-xs text-muted-foreground sm:px-6">
+          <p>&copy; {new Date().getFullYear()} RevEngi. All rights reserved.</p>
+          <p className="text-muted-foreground/60">Built for reverse engineers</p>
         </div>
       </div>
     </footer>

@@ -34,27 +34,27 @@ const contactCards = [
 
 export default function ContactPage() {
   return (
-    <main className="bg-background px-4 pt-24 pb-12 text-foreground sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <section className="mb-10 max-w-3xl">
-          <div className="mb-5 inline-flex rounded-md border border-border bg-muted/50 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+    <main className="bg-background px-4 pt-24 pb-16 text-foreground sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl">
+        <section className="mb-12">
+          <span className="inline-block border border-border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
             Contact
-          </div>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">Get in touch with RevEngi.</h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+          </span>
+          <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl">Get in touch with RevEngi.</h1>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
             Use the channel that best matches your issue. Telegram is the fastest path for active support, while email is better for longer-form requests and account-specific follow-up.
           </p>
         </section>
 
-        <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <section className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2 xl:grid-cols-4">
           {contactCards.map((card) => (
             <ContactCard key={card.title} {...card} />
           ))}
         </section>
 
-        <section className="mt-10 rounded-xl border border-border bg-muted/50 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold text-foreground">API support</h2>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">
+        <section className="mt-12 border border-border bg-background p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-foreground">API support</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
             For API-specific questions, email{' '}
             <a href="mailto:api@revengi.in" className="text-foreground underline decoration-border underline-offset-4 hover:decoration-muted-foreground">
               api@revengi.in
@@ -83,22 +83,25 @@ function ContactCard({
   actions: { href: string; label: string }[];
 }) {
   return (
-    <div className="flex h-full flex-col rounded-xl border border-border bg-muted/50 p-6 transition-colors hover:bg-muted">
-      <div className="mb-5 flex items-center gap-3 border-b border-border pb-5">
-        <div className="flex h-10 w-10 items-center justify-center border border-border bg-muted text-foreground/75">
+    <div className="flex h-full flex-col bg-background p-6 transition-colors hover:bg-muted/30">
+      <div className="mb-5 flex items-center justify-between">
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground/50">Channel</p>
+          <h2 className="mt-1.5 text-xl font-semibold text-foreground">{title}</h2>
+        </div>
+        <div className="flex h-10 w-10 items-center justify-center border border-border text-foreground/60">
           {icon}
         </div>
-        <h2 className="text-xl font-semibold text-foreground">{title}</h2>
       </div>
 
-      <p className="mb-6 text-sm leading-6 text-muted-foreground">{description}</p>
+      <p className="mb-5 text-sm leading-6 text-muted-foreground">{description}</p>
 
-      <div className="mt-auto grid gap-3 sm:grid-cols-2 md:grid-cols-1">
+      <div className="mt-auto flex flex-col gap-2">
         {actions.map((action) => (
           <Link
             key={action.label}
             href={action.href}
-            className="inline-flex w-full justify-center rounded-md border border-border bg-foreground px-4 py-3 text-sm font-medium text-background transition hover:bg-foreground/90"
+            className="inline-flex w-full items-center justify-center bg-foreground px-4 py-2.5 text-sm font-medium text-background transition hover:bg-foreground/90"
           >
             {action.label}
           </Link>

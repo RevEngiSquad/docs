@@ -12,12 +12,12 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-xl border border-border bg-muted/50 p-6 sm:p-8">
-      <h2 className="mb-5 flex items-center gap-2 text-2xl font-semibold text-foreground">
+    <section className="p-6 sm:p-8">
+      <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-foreground">
         {icon}
         {title}
       </h2>
-      <div className="space-y-4 text-sm leading-7 text-muted-foreground sm:text-base">{children}</div>
+      <div className="space-y-3 text-sm leading-7 text-muted-foreground">{children}</div>
     </section>
   );
 }
@@ -36,20 +36,20 @@ function InlineLink({ href, children }: { href: string; children: React.ReactNod
 
 export default function TermsOfServicePage() {
   return (
-    <main className="bg-background px-4 pt-24 pb-12 text-foreground sm:px-6 lg:px-8">
+    <main className="bg-background px-4 pt-24 pb-16 text-foreground sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-12 max-w-3xl">
-          <div className="mb-5 inline-flex rounded-md border border-border bg-muted/50 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+        <div className="mb-12">
+          <span className="inline-block border border-border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
             Legal
-          </div>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">Terms of Service</h1>
-          <p className="mt-4 text-sm text-muted-foreground/80">Last Updated: February 19, 2026</p>
-          <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+          </span>
+          <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl">Terms of Service</h1>
+          <p className="mt-4 font-mono text-xs text-muted-foreground/80">Last Updated: February 19, 2026</p>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
             These terms govern use of RevEngi, including the Telegram bot, API services, and related tooling.
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="divide-y divide-border border border-border bg-background">
           <Section title="Introduction" icon={<InfoCircledIcon className="h-5 w-5" />}>
             <p>
               Welcome to <strong className="text-foreground">RevEngi</strong>. By accessing or using our Telegram bot (
@@ -104,7 +104,7 @@ export default function TermsOfServicePage() {
           </Section>
 
           <Section title="Limitation of Liability">
-            <div className="rounded-md border border-border bg-muted/30 px-4 py-3">
+            <div className="border border-border bg-muted/20 px-4 py-3">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/75">Important Liability Disclaimer</p>
             </div>
             <p className="text-xs uppercase leading-relaxed tracking-[0.08em] text-muted-foreground sm:text-sm">
@@ -117,7 +117,7 @@ export default function TermsOfServicePage() {
               <li><strong className="text-foreground">Unauthorized Analysis:</strong> Claims arising from the analysis of applications you were not authorized to process.</li>
               <li><strong className="text-foreground">Third-Party Claims:</strong> Any legal actions or damages brought against us by third parties related to your use of the Services.</li>
             </LegalList>
-            <div className="rounded-md border border-border bg-muted/50 px-4 py-3">
+            <div className="border border-border bg-muted/20 px-4 py-3">
               <p className="text-sm text-foreground/70">
                 <span className="font-semibold text-foreground">Liability Cap:</span> RevEngi’s total aggregate liability for any claim shall not exceed the total amount actually paid by you to RevEngi for use of the Services in the last 3 months. If you have not paid any fees, RevEngi shall have no monetary liability.
               </p>
@@ -205,7 +205,7 @@ export default function TermsOfServicePage() {
 
           <Section title="Contact Information">
             <p>If you have any questions about these Terms, please contact us at:</p>
-            <div className="rounded-md border border-border bg-muted/30 px-4 py-3">
+            <div className="border border-border bg-muted/20 px-4 py-3">
               <p className="text-muted-foreground">
                 <strong className="text-foreground">Email:</strong>{' '}
                 <a href="mailto:legal@revengi.in" className="text-foreground underline decoration-border underline-offset-4 hover:decoration-muted-foreground">

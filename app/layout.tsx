@@ -1,5 +1,5 @@
 import './global.css';
-import { RootProvider } from 'fumadocs-ui/provider';
+import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { ToastProvider } from '@/components/ToastProvider';
@@ -11,7 +11,7 @@ const inter = Inter({
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <RootProvider>
           <ToastProvider>
             {children}

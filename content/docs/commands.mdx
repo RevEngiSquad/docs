@@ -3,15 +3,15 @@ title: Commands
 description: Detailed information about  all available commands for RevEngiBot.
 ---
 
-## Start <a id="start"></a>
+## Start
 
 The `/start` command is the default command that displays the bot's start page, nothing special but a must for every bot to interact with users.
 
-## Help <a id="help"></a>
+## Help
 
 The `/help` command is used to display the help page, which contains all the commands that the bot has.
 
-## AAB to APK Conversion <a id="aab-to-apk"></a>
+## AAB to APK Conversion
 
 No need for additional tools! Convert **AAB** files to APK format directly with the `/aab2apk` command, simplifying the process for developers and testers.
 
@@ -24,7 +24,7 @@ Use this cmd while replying to a `.aab` file to convert that to `.apk` file.
   **Note:** The converted apk file is not signed.
 </Callout>
 
-## APK Analysis <a id="apk"></a>
+## APK Analysis
 
 **APK Analysis** provides a comprehensive way to interact with APK files. You can extract resources, permissions, activities, services, and more. This feature is essential for reverse engineers and developers working with Android applications.
 
@@ -376,7 +376,7 @@ This command will unregister the APK from the bot.
   **Note:** All APK files will be unregistered after 30 minutes.
 </Callout>
 
-## APKiD <a id="apkid"></a>
+## APKiD
 
 ```shell
 /apkid
@@ -384,7 +384,7 @@ This command will unregister the APK from the bot.
 
 You can use this command to identify the packer, protector, obfuscator, or oddities used in an APK file.
 
-## Smali Grammar <a id="smali"></a>
+## Smali Grammar
 
 This command allows you to fetch detailed information about Smali instructions, helping you understand their syntax, usage, and behavior.
 
@@ -436,7 +436,7 @@ When you use the `/smali` command, the bot will guide you through the process of
    - If you choose **Exact Match**, the bot will provide detailed information about the `invoke-virtual` instruction:
    - If you choose **Partial Match**, the bot will list instructions that contain the string `invoke-virtual`, allowing you to select one for detailed information.
 
-## APK Protector <a id="apkprotect"></a>
+## APK Protector
 
 ```shell
 /apkprotect
@@ -476,7 +476,7 @@ This command signs an APK file using various signing schemes. The command must b
 - `/apksign v1 [in reply to an APK file]` (Signs with only v1)
 - `/apksign v2+v3 [in reply to an APK file]` (Signs with v2 and v3)
 
-## ASK AI <a id="askai"></a>
+## ASK AI
 
 This command allows you to interact with an AI model. You can start a conversation, reset it, or exit it.
 
@@ -516,7 +516,7 @@ Subsequent messages you send will be treated as part of the ongoing conversation
 
 Conversations will automatically end after 10 minutes of inactivity.
 
-## ASM <a id="asm"></a>
+## ASM
 
 This command converts assembly code to various ARM assembly hexadecimal representations.
 
@@ -548,7 +548,7 @@ The command will return a response containing hexadecimal representations for di
   its compatibility with different architectures.
 </Callout>
 
-## DISASM <a id="disasm"></a>
+## DISASM
 
 This command disassembles ARM assembly hexadecimal code into its corresponding assembly instructions.
 
@@ -583,7 +583,7 @@ The command will return a response containing disassembled assembly instructions
   and its compatibility with different ARM architectures.
 </Callout>
 
-## Base Converter <a id="base"></a>
+## Base Converter
 
 This command allows you to convert numbers between different bases.
 
@@ -671,7 +671,7 @@ Decode a Base64 or Base32 encoded string back to its original string representat
   the specified base. Errors may occur if the input is invalid.
 </Callout>
 
-## Blutter Integration <a id="blutter"></a>
+## Blutter Integration
 
 **Blutter Integration** facilitates quick analysis of Flutter APKs and `.so` files. Detect Dart versions, extract necessary files, and generate detailed analysis reports within seconds.
 
@@ -708,7 +708,7 @@ Replace `<zip_filename>` with your desired filename. The `.zip` extension is opt
   `libapp.so`.
 </Callout>
 
-## Control Flow Flattening (Obfuscation) <a id="cff"></a>
+## Control Flow Flattening (Obfuscation)
 
 This command applies control flow flattening obfuscation to DEX files using BlackObfuscator. This makes reverse engineering more difficult.
 
@@ -738,7 +738,7 @@ Arguments specify classes and packages to include or exclude from obfuscation.
 - **Reply to DEX:** This command _must_ be used as a reply to a DEX file.
 - **Case Sensitivity:** Package names are case-sensitive. Incorrect casing will lead to unexpected results.
 
-## Cocos2d JSC Decryption <a id="cocos2d"></a>
+## Cocos2d JSC Decryption
 
 This command decrypts a Cocos2d `.jsc` (encrypted JavaScript) file to a `.js` (plain JavaScript) file.
 
@@ -763,7 +763,7 @@ Replace `<key>` with the correct decryption key for the `.jsc` file.
   an incorrect key will result in failure.
 </Callout>
 
-## DEX to C <a id="dex2c"></a>
+## DEX to C
 
 This command converts an APK file to C code using dex2c.
 
@@ -783,7 +783,7 @@ To use this command, reply to a ZIP file containing:
 </Callout>
 
 
-## DEX to Java <a id="dex2java"></a>
+## DEX to Java
 
 This command converts DEX (Dalvik Executable) files to Java source code. It supports multiple decompilers to allow you to choose the best option for your needs.
 
@@ -805,7 +805,7 @@ After sending the command, the bot will prompt you to select a decompiler from t
   better results than others for specific DEX files.
 </Callout>
 
-## DEX to Jar <a id="dex2jar"></a>
+## DEX to Jar
 
 This command converts DEX files to JAR (Java ARchive) format.
 
@@ -817,7 +817,7 @@ This command must be used as a reply to a DEX file.
 /dex2jar
 ```
 
-## Dex Repair <a id="dex-repair"></a>
+## Dex Repair
 
 It fixes the DEX magic number and updates the checksum and signature in the DEX header.
 
@@ -829,7 +829,7 @@ This command must be used as a reply to a DEX file.
 /dexrepair
 ```
 
-## Frida Script Compilation & Obfuscation <a id="frida_compile"></a>
+## Frida Script Compilation & Obfuscation
 
 ```shell
 /frida_compile
@@ -843,7 +843,7 @@ This command compiles and obfuscates JavaScript Frida scripts into a Frida-compa
   compatible with all Frida versions.
 </Callout>
 
-## Hash Generator <a id="hash"></a>
+## Hash Generator
 
 This command generates various cryptographic hashes for input text or files.
 
@@ -887,7 +887,7 @@ The command will return a list of hashes, including:
   processing time may increase.
 </Callout>
 
-## Java/Smali Conversion <a id="java2smali"></a>
+## Java/Smali Conversion
 
 With **Java to Smali** and **Smali to Java** conversions, you can seamlessly transition between these two languages.
 
@@ -909,7 +909,7 @@ For Smali to Java:
   **Note:** These commands must be used as a reply to the corresponding file.
 </Callout>
 
-## Regex Maker <a id="regex"></a>
+## Regex Maker
 
 **Regex Maker** allows you to craft complex regular expressions for Smali code. Whether for searching or extracting data, this tool simplifies regex creation.
 
@@ -927,7 +927,7 @@ OR reply to a message with the command:
 /regex <reply to input>
 ```
 
-## Smali2Frida <a id="s2f"></a>
+## Smali2Frida
 
 This command generates Frida hooks directly from `.smali` files, simplifying the process of setting up dynamic analysis.
 
@@ -945,7 +945,7 @@ Reply to a `.smali` file with the following command:
   provided `.smali` code.
 </Callout>
 
-## JNI Function Information <a id="jni_info"></a>
+## JNI Function Information
 
 This command extracts and displays JNI (Java Native Interface) function signatures from an APK file.
 
@@ -965,7 +965,7 @@ The bot will then process the APK and return a list of identified JNI function s
   the APK.
 </Callout>
 
-## MT Enhanced Hook <a id="mthook"></a>
+## MT Enhanced Hook
 
 This command generates an MT enhanced hook for APK files. This is typically used for bypassing signature checks during application analysis or modification.
 
@@ -983,7 +983,7 @@ Reply to an APK file with the command:
   and only on APKs you have permission to modify.
 </Callout>
 
-## PairIP Patch <a id="pairip"></a>
+## PairIP Patch
 
 This command generates a patch for **PairIP**, which is often used to bypass certain security mechanisms in APKs.
 
@@ -1077,7 +1077,7 @@ If you prefer command-line tools:
   **Warning:** Use this command cautiously and only on APKs you have permission to modify. This command is only for educational purposes and should not be used for malicious activities.
 </Callout>
 
-## APK Scan <a id="scan"></a>
+## APK Scan
 
 This command scans an APK file to assess its security posture using third-party tools.
 
@@ -1113,7 +1113,7 @@ Reply to an APK file with the `/scan` command. The bot will then prompt you to s
   complexity of the APK.
 </Callout>
 
-## SSL Patch <a id="sslpatch"></a>
+## SSL Patch
 
 Use this cmd while replying to an `.apk` or `.apks` file to patch SSL pinning in the APK.
 
@@ -1131,7 +1131,7 @@ Use this cmd while replying to an `.apk` or `.apks` file to patch SSL pinning in
 </Callout>
 
 
-## APK Converter <a id="toapk"></a>
+## APK Converter
 
 This command converts various Android application package formats (`.apks`, `.xapk`, `.apkm`) to the standard `.apk` format.
 
@@ -1151,7 +1151,7 @@ The bot will process the input file and generate a corresponding `.apk` file.
   a reply to a supported package file.
 </Callout>
 
-## XML Tools <a id="xml"></a>
+## XML Tools
 
 This command provides tools for interacting with XML and AXML (Android XML) files.
 
@@ -1179,6 +1179,6 @@ This command provides tools for interacting with XML and AXML (Android XML) file
   updates.
 </Callout>
 
-## Credits <a id="credits"></a>
+## Credits
 
 This command lists the third-party libraries used in this project. You can view this information by using the command `/credits`.
